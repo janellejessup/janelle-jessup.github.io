@@ -1,0 +1,193 @@
+<!-- FILE STRUCTURE -->
+<!-- 
+/
+|-- index.html
+|-- about.html
+|-- projects.html
+|-- experience.html
+|-- writing.html
+|-- contact.html
+|-- assets/
+|   |-- css/style.css
+|   |-- img/profile.jpg
+|-- assets/docs/Janelle_Jessup_Resume.pdf
+-->
+
+<!-- ================= index.html ================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janelle Jessup | Computational Social Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<header class="top-bar">
+  <nav>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="writing.html">Writing</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Janelle Jessup</h1>
+    <h2>Computational Social Scientist</h2>
+    <p class="subtitle">MS Computational Social Science, UCSD (Expected June 2026)</p>
+  </section>
+</main>
+
+<footer>
+  <p>jessup.research@gmail.com · <a href="https://www.linkedin.com/in/janelle-jessup-46abba25b">LinkedIn</a></p>
+</footer>
+</body>
+</html>
+
+<!-- ================= about.html ================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Janelle Jessup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+<header class="top-bar">
+  <nav>
+    <a class="active" href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="experience.html">Experience</a>
+    <a href="writing.html">Writing</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <h1>About</h1>
+  <div class="about-grid">
+    <img src="assets/img/profile.jpg" alt="Janelle Jessup" />
+    <div>
+      <p><strong>MS Computational Social Science</strong>, UC San Diego (Expected June 2026)</p>
+      <p><strong>BA Sociology</strong>, Pepperdine University, magna cum laude (May 2025)</p>
+      <p class="identity">“I am a quantitative social scientist, adept at applying advanced statistical and computational methods to analyze complex social data...”</p>
+      <h3>Research Interests</h3>
+      <ul>
+        <li>Social connection & attraction</li>
+        <li>Inequality & sensemaking</li>
+        <li>Race & ethnic relations</li>
+        <li>Disability</li>
+      </ul>
+      <a class="button" href="assets/docs/Janelle_Jessup_Resume.pdf">Download Resume</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>jessup.research@gmail.com · <a href="https://www.linkedin.com/in/janelle-jessup-46abba25b">LinkedIn</a></p>
+</footer>
+</body>
+</html>
+
+<!-- ================= assets/css/style.css ================= -->
+body {
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  background-color: #FFFFFF;
+  color: #361D05;
+}
+
+.top-bar {
+  background-color: #FFEBEB;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+}
+
+.top-bar nav a {
+  margin-right: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #361D05;
+}
+
+.top-bar nav a.active,
+.top-bar nav a:hover {
+  background-color: #FCD2D2;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+}
+
+.about-grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.identity {
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #361D05;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #FFEBEB;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: #361D05;
+  font-weight: 600;
+}
