@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocean background — Web Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Web Site</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#code">Code</a></li>
+        <li><a href="index.html#writing">Writing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Ocean background</h1>
+      <p class="hero-tagline">Technology, math, and how the interactive ocean behind this site works.</p>
+    </section>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <p>The background on this site is a real-time 3D ocean rendered with WebGPU. It combines a procedural water surface (normal-map waves plus click-driven ripples), an atmospheric sky, and a bloom post-process. The scene runs only when WebGPU is available.</p>
+    </section>
+
+    <section class="section">
+      <h2>Technology</h2>
+      <p>The stack is built on the following pieces.</p>
+      <h3>WebGPU</h3>
+      <p>Rendering uses the browser’s <strong>WebGPU</strong> API instead of WebGL. WebGPU gives lower-level access to the GPU, better performance for complex scenes, and a path to modern shader and compute features. The ocean script checks for WebGPU support and does nothing if it’s missing.</p>
+      <h3>Three.js (WebGPU build)</h3>
+      <p>The scene is built with <strong>Three.js</strong>’s WebGPU renderer and related builds (<code>three.webgpu.js</code>, <code>three.tsl.js</code>) from the official three.js repo. The site ships a copy of these under <code>vendor/three-webgpu/</code> so the ocean works without a separate three.js install.</p>
+      <h3>TSL (Three Shading Language)</h3>
+      <p>Materials and effects are written in <strong>TSL</strong>, Three.js’s node-based shading language. TSL nodes represent operations (math, texture lookups, time) and are compiled into shaders by the renderer. The water and sky use TSL for vertex and fragment logic instead of hand-written GLSL.</p>
+      <h3>WaterMesh and SkyMesh</h3>
+      <p>The water is a <strong>WaterMesh</strong> (from Three.js addons): a large plane with a TSL material that samples a tiling normal map, applies Fresnel-based reflection/refraction, and uses a reflector for the mirrored scene. The sky is a <strong>SkyMesh</strong>, an analytical skydome based on the Preetham daylight model with optional procedural clouds.</p>
+      <h3>Post-processing</h3>
+      <p>A <strong>RenderPipeline</strong> renders the scene to a pass, then adds a <strong>bloom</strong> node (blurred bright areas) and composites the result. Tone mapping (ACES) and exposure control the final look.</p>
+    </section>
+
+    <section class="section">
+      <h2>Math</h2>
+      <h3>Base ocean waves</h3>
+      <p>The main water motion comes from a <strong>tiling normal map</strong> sampled with a time-driven UV offset. Several scaled UV coordinates are used (e.g. <code>uv/103 + (t/17, t/29)</code> and similar terms with different divisors and time factors). Those samples are combined and scaled to form a normal vector. A uniform <code>waveTimeScale</code> multiplies time so wave speed can be tuned without changing the shader structure.</p>
+      <h3>Click ripples</h3>
+      <p>Each click adds a ripple: a world XZ position and a timestamp. In the vertex shader, for each of the last four ripples we compute:</p>
+      <ul>
+        <li><strong>d</strong> = distance from the vertex (world XZ) to the ripple center</li>
+        <li><strong>age</strong> = current time − ripple time</li>
+        <li><strong>wave</strong> = sin(k·d − ω·age), with k = <code>rippleWavelength</code>, ω = <code>rippleSpeed</code></li>
+        <li><strong>decay</strong> = exp(−decay·age)</li>
+      </ul>
+      <p>The vertex’s Y displacement is the sum of <code>amplitude × wave × decay</code> over active ripples (age ≥ 0). So ripples are circular waves that expand and fade; amplitude, wavelength, speed, and decay are all tunable.</p>
+      <h3>Sky</h3>
+      <p>The sky shader implements the <strong>Preetham et al.</strong> daylight model (Rayleigh and Mie scattering, turbidity, sun position). Sun position is set from elevation and azimuth; the water’s sun direction and environment use that same sun.</p>
+    </section>
+
+    <section class="section">
+      <h2>Rendering pipeline</h2>
+      <p>Each frame the scene is rendered into a texture, bloom is applied to that texture, and the two are combined. The result is displayed full-screen behind the page content (fixed canvas, lower z-index). Click hits on the water are raycast to the plane; the hit point's world XZ and the current time are pushed onto a short queue (e.g. last four ripples). Those positions and times are written into the water material's uniforms so the vertex shader can compute the ripple displacement.</p>
+      <h3>Tuning and persistence</h3>
+      <p>All tunable parameters (ripples, water surface, sun, sky, bloom, colors) can be stored in a single JSON object in <code>localStorage</code> under <code>oceanDebugParams</code>. On load, the ocean applies any saved values before rendering, so settings persist across reloads.</p>
+    </section>
+
+    <section class="section">
+      <h2>References</h2>
+      <ul class="link-list">
+        <li><a href="https://threejs.org/examples/?q=ocean#webgpu_ocean" target="_blank" rel="noopener">Three.js WebGPU ocean example</a> — Original demo this implementation is based on.</li>
+        <li><a href="https://www.w3.org/TR/webgpu/" target="_blank" rel="noopener">WebGPU specification</a> — W3C WebGPU API.</li>
+        <li><a href="https://threejs.org/docs/" target="_blank" rel="noopener">Three.js documentation</a> — Three.js and WebGPU/TSL docs.</li>
+        <li><a href="https://www.researchgate.net/publication/220720443_A_Practical_Analytic_Model_for_Daylight" target="_blank" rel="noopener">Preetham et al., A Practical Analytic Model for Daylight</a> — Sky model reference.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Home</a> · Built with HTML &amp; CSS · Hosted on GitHub</p>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three-webgpu/three.webgpu.js",
+        "three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
+        "three/tsl": "./vendor/three-webgpu/three.tsl.js",
+        "three/addons/": "./vendor/three-webgpu/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="ocean-webgpu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

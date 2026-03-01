@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="logo">Web Site</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#writing">Writing</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Welcome</h1>
+      <p class="hero-tagline">A simple site, built for GitHub and ready to grow.</p>
+      <a href="#about" class="btn btn-primary">Get started</a>
+    </section>
+
+    <section id="about" class="section about">
+      <h2>About</h2>
+      <p>Your background and intro go here. Replace this placeholder with a short paragraph about yourself.</p>
+      <h3>Skills</h3>
+      <ul>
+        <li>Skill or area one</li>
+        <li>Skill or area two</li>
+        <li>Skill or area three</li>
+      </ul>
+      <h3>Experience</h3>
+      <ul>
+        <li><strong>Role, Company</strong> — Short description or timeframe.</li>
+        <li><strong>Role, Company</strong> — Short description or timeframe.</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section projects">
+      <h2>Projects</h2>
+      <p>Work I've done at Intuit.</p>
+      <ul class="project-list">
+        <li class="project-item">
+          <strong>Project name one</strong> — One or two sentences describing what you did and the outcome.
+        </li>
+        <li class="project-item">
+          <strong>Project name two</strong> — One or two sentences describing what you did and the outcome.
+        </li>
+        <li class="project-item">
+          <strong>Project name three</strong> — One or two sentences describing what you did and the outcome.
+        </li>
+      </ul>
+    </section>
+
+    <section id="code" class="section code">
+      <h2>Code</h2>
+      <p>Internal repositories and code I've contributed to.</p>
+      <ul class="link-list">
+        <li><a href="#">Repository name one</a> — One-line description.</li>
+        <li><a href="#">Repository name two</a> — One-line description.</li>
+        <li><a href="#">Repository name three</a> — One-line description.</li>
+      </ul>
+    </section>
+
+    <section id="writing" class="section writing">
+      <h2>Writing</h2>
+      <p>Technical documentation and articles I've written.</p>
+      <ul class="link-list">
+        <li><a href="ocean.html">Ocean background</a> — Technology, math, and how the interactive ocean works.</li>
+        <li><a href="#">Document title one</a> — One-line description.</li>
+        <li><a href="#">Document title two</a> — One-line description.</li>
+        <li><a href="#">Document title three</a> — One-line description.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built with HTML &amp; CSS · Hosted on GitHub</p>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three-webgpu/three.webgpu.js",
+        "three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
+        "three/tsl": "./vendor/three-webgpu/three.tsl.js",
+        "three/addons/": "./vendor/three-webgpu/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="ocean-webgpu.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
