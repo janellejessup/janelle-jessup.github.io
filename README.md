@@ -2,7 +2,7 @@
 
 A simple static website, ready to host on GitHub Pages.
 
-https://github.intuit.com/pages/jjessup/web-site/
+https://github.com/janellejessup/janelle-jessup.github.io.
 
 ## What’s here
 
