@@ -1,0 +1,21 @@
+{
+  "rippleA": "8",
+  "rippleW": "0.08",
+  "rippleS": "2.5",
+  "rippleD": "0.4",
+  "dist": "3.7",
+  "size": "1",
+  "waveVel": "0.2",
+  "elev": "2",
+  "az": "180",
+  "exp": "0.1",
+  "turb": "10",
+  "ray": "2",
+  "cc": "0.4",
+  "cd": "0.5",
+  "ce": "0.5",
+  "bloomS": "0.1",
+  "bloomR": "0",
+  "sunColor": "ffffff",
+  "waterColor": "001e0f"
+}

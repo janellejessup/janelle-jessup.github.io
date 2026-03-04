@@ -24,11 +24,9 @@
   const MAX_RIPPLES = 4;
   const OCEAN_PARAMS_KEY = 'oceanDebugParams';
 
-  function applySavedParams(ctx) {
+  function applyParams(ctx, o) {
+    if (!o || typeof o !== 'object') return;
     try {
-      const raw = localStorage.getItem(OCEAN_PARAMS_KEY);
-      if (!raw) return;
-      const o = JSON.parse(raw);
       const w = ctx.water, s = ctx.sky, b = ctx.bloomPass, r = ctx.renderer, p = ctx.parameters;
       if (o.rippleA != null) w.rippleAmplitude.value = Number(o.rippleA);
       if (o.rippleW != null) w.rippleWavelength.value = Number(o.rippleW);
@@ -56,7 +54,22 @@
         if (/^[0-9a-fA-F]{6}$/.test(hex)) w.waterColor.value.setHex(parseInt(hex, 16));
       }
       ctx.updateSun();
-    } catch (e) { /* ignore invalid stored params */ }
+    } catch (e) { /* ignore invalid params */ }
+  }
+
+  async function loadParamsForInit(ctx) {
+    let config = {};
+    try {
+      const res = await fetch('./ocean-params.json');
+      if (res.ok) config = await res.json();
+    } catch (e) { /* config file optional */ }
+    let local = {};
+    try {
+      const raw = localStorage.getItem(OCEAN_PARAMS_KEY);
+      if (raw) local = JSON.parse(raw);
+    } catch (e) { /* ignore */ }
+    const merged = { ...config, ...local };
+    if (Object.keys(merged).length > 0) applyParams(ctx, merged);
   }
   let container, camera, scene, renderer, renderPipeline;
   let water, sun, sky, bloomPass;
@@ -206,9 +219,10 @@
       bloomPass,
       renderer,
       parameters,
-      updateSun
+      updateSun,
+      applyParams
     };
-    applySavedParams(ctx);
+    await loadParamsForInit(ctx);
 
     if (showOceanDebug()) {
       createDebugPanel({
@@ -253,10 +267,18 @@
   input[type="range"] { width: 100%; margin-top: 2px; height: 18px; }
   input.hex { width: 80px; padding: 4px; background: #1a1a1a; color: #e8e8e8; border: 1px solid #555; border-radius: 4px; font-size: 12px; }
   h2 { font-size: 14px; margin: 0 0 10px; color: #fff; border-bottom: 1px solid #555; padding-bottom: 6px; }
+  .param-btns { margin-bottom: 12px; display: flex; gap: 8px; }
+  .param-btns button { padding: 6px 10px; font-size: 12px; cursor: pointer; background: #444; color: #e8e8e8; border: 1px solid #555; border-radius: 4px; }
+  .param-btns button:hover { background: #555; }
 </style>
 </head>
 <body>
 <h2>Ocean debug</h2>
+<div class="param-btns">
+  <button type="button" id="btnExport">Export</button>
+  <button type="button" id="btnImport">Import</button>
+  <input type="file" id="fileImport" accept=".json" style="display:none">
+</div>
 <div class="section"><div class="section-title">Click ripples</div><div class="section-body">
   <div class="row"><label>Amplitude</label><span class="val" id="v-rippleA">8</span><br><input type="range" id="rippleA" min="0" max="40" step="1" value="8"></div>
   <div class="row"><label>Wavelength</label><span class="val" id="v-rippleW">0.08</span><br><input type="range" id="rippleW" min="0.01" max="0.3" step="0.01" value="0.08"></div>
@@ -296,11 +318,14 @@
   var w = d.water, s = d.sky, b = d.bloomPass, r = d.renderer, p = d.parameters, sun = d.updateSun;
   var sliderIds = ['rippleA','rippleW','rippleS','rippleD','dist','size','waveVel','elev','az','exp','turb','ray','cc','cd','ce','bloomS','bloomR'];
   var hexIds = ['sunColor','waterColor'];
-  function saveParams() {
+  function getParams() {
     var o = {};
     sliderIds.forEach(function(id){ var el = document.getElementById(id); if (el) o[id] = el.value; });
     hexIds.forEach(function(id){ var el = document.getElementById(id); if (el) o[id] = (el.value || '').replace(/^#/, ''); });
-    try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {}
+    return o;
+  }
+  function saveParams() {
+    try { localStorage.setItem(KEY, JSON.stringify(getParams())); } catch (e) {}
   }
   function loadParams() {
     try {
@@ -351,6 +376,34 @@
   }
   setHex('sunColor', function(hex){ w.sunColor.value.setHex(hex); });
   setHex('waterColor', function(hex){ w.waterColor.value.setHex(hex); });
+  document.getElementById('btnExport').addEventListener('click', function(){
+    var blob = new Blob([JSON.stringify(getParams(), null, 2)], {type: 'application/json'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ocean-params.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+  var fileInput = document.getElementById('fileImport');
+  document.getElementById('btnImport').addEventListener('click', function(){ fileInput.click(); });
+  fileInput.addEventListener('change', function(){
+    var f = fileInput.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function(){
+      try {
+        var o = JSON.parse(r.result);
+        if (d.applyParams) d.applyParams(d, o);
+        Object.keys(o).forEach(function(k){
+          var el = document.getElementById(k), v = document.getElementById('v-' + k);
+          if (el && o[k] != null) { el.value = o[k]; if (v) v.textContent = o[k]; }
+        });
+        saveParams();
+      } catch (e) {}
+    };
+    r.readAsText(f);
+    fileInput.value = '';
+  });
 })();
 ` + '</scr' + 'ipt>\n</body>\n</html>';
 
