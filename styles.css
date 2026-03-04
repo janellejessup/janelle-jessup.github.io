@@ -320,3 +320,61 @@ main {
   font-size: 0.875rem;
   color: var(--text-muted);
 }
+
+/* ABOUT INTRO LAYOUT */
+.about-intro {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Profile Photo */
+.about-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.about-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #d4d4ff, #f2e8ff);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Text area */
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Buttons */
+.about-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.about-btn {
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid #111;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.about-btn:hover {
+  background: #111;
+  color: white;
+}
