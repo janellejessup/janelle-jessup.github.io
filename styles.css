@@ -1,314 +1,118 @@
-/* ===============================
-BASE
-=============================== */
-
-:root {
-  --bg: #0f0f0f;
-  --surface: #1a1a1a;
-  --text: #e8e6e3;
-  --text-muted: #9a958a;
-  --accent: #d4a055;
-  --accent-hover: #e4b86a;
-  --border: #2d2d2a;
-  --radius: 10px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  margin: 0;
-  font-family: "DM Sans", system-ui, sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text);
-  background: var(--bg);
+margin:0;
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
+background:#0b0f14;
+color:white;
 }
 
-/* ===============================
-PARTICLE BACKGROUND
-=============================== */
+/* FULLSCREEN CANVAS */
 
-.particle-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
+#bg{
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+z-index:-1;
 }
 
-#particle-canvas-container canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
+/* PAGE LAYOUT */
+
+.layout{
+display:flex;
+max-width:1200px;
+margin:auto;
 }
 
-/* ===============================
-LAYOUT
-=============================== */
+/* SIDEBAR */
 
-.layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  max-width: 1200px;
-  margin: auto;
-  position: relative;
-  z-index: 2;
+.sidebar{
+width:260px;
+padding:40px 25px;
+position:sticky;
+top:0;
+height:100vh;
 }
 
-/* ===============================
-SIDEBAR
-=============================== */
-
-.sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  padding: 3rem 2rem;
-  border-right: 1px solid var(--border);
+.profile{
+width:140px;
+border-radius:50%;
+margin-bottom:15px;
 }
 
-.sidebar h1 {
-  font-family: "Fraunces", serif;
-  font-size: 1.7rem;
-  margin: 1rem 0 0.5rem;
+.sidebar h1{
+font-size:24px;
+margin:10px 0;
 }
 
-.bio {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
+.tagline{
+opacity:0.8;
+margin-bottom:20px;
 }
 
-/* Profile image */
-
-.profile-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--accent);
+.links a{
+display:block;
+color:#7db7ff;
+text-decoration:none;
+margin-bottom:8px;
 }
 
-/* Social links */
-
-.social-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.links a:hover{
+text-decoration:underline;
 }
 
-.social-links a {
-  text-decoration: none;
-  font-size: 0.95rem;
-  color: var(--accent);
-  transition: opacity 0.2s ease;
+/* MAIN CONTENT */
+
+.content{
+flex:1;
+padding:60px 40px;
 }
 
-.social-links a:hover {
-  opacity: 0.7;
+section{
+margin-bottom:60px;
 }
 
-/* ===============================
-CONTENT AREA
-=============================== */
-
-.content {
-  padding: 3rem 3rem 4rem;
-  max-width: 760px;
+h2{
+margin-bottom:25px;
+font-size:26px;
 }
 
-section {
-  margin-bottom: 3rem;
+/* RESEARCH GRID */
+
+.research-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+gap:25px;
 }
 
-h2 {
-  font-family: "Fraunces", serif;
-  font-size: 1.6rem;
-  margin-bottom: 0.8rem;
+/* RESEARCH CARDS */
+
+.research-card{
+background:rgba(255,255,255,0.06);
+padding:22px;
+border-radius:14px;
+cursor:pointer;
+transition:all .3s ease;
 }
 
-h3 {
-  font-size: 1rem;
-  margin: 0;
+.research-card:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.1);
 }
 
-p {
-  color: var(--text-muted);
+.summary{
+opacity:.85;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
+.details{
+max-height:0;
+overflow:hidden;
+opacity:0;
+transition:all .4s ease;
+margin-top:10px;
 }
 
-a:hover {
-  color: var(--accent-hover);
-}
-
-/* ===============================
-RESEARCH SECTION
-=============================== */
-
-.section-intro {
-  margin-bottom: 1.5rem;
-  max-width: 60ch;
-}
-
-/* Research grid */
-
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.2rem;
-}
-
-/* Bubble */
-
-.research-bubble {
-  background: rgba(26, 26, 26, 0.75);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.3rem;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
-  cursor: pointer;
-}
-
-/* Hover effect */
-
-.research-bubble:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-}
-
-/* Summary */
-
-.research-summary {
-  font-size: 0.92rem;
-  margin-top: 0.5rem;
-}
-
-/* Details (expand on hover) */
-
-.research-details {
-  display: none;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-}
-
-.research-bubble:hover .research-details {
-  display: block;
-}
-
-.research-details h4 {
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-
-.skills {
-  color: var(--accent);
-}
-
-/* Resources */
-
-.resource-links {
-  padding-left: 1rem;
-  margin-top: 0.4rem;
-}
-
-.resource-links li {
-  margin-bottom: 0.2rem;
-}
-
-/* ===============================
-LISTS
-=============================== */
-
-.info-list,
-.experience-list,
-.project-list,
-.link-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.info-list li,
-.experience-list li,
-.project-list li {
-  margin-bottom: 1rem;
-}
-
-.date {
-  display: block;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin-top: 0.2rem;
-}
-
-/* Code / writing links */
-
-.link-list li {
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.link-list li:last-child {
-  border-bottom: none;
-}
-
-/* ===============================
-FOOTER
-=============================== */
-
-.site-footer {
-  border-top: 1px solid var(--border);
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-/* ===============================
-RESPONSIVE
-=============================== */
-
-@media (max-width: 900px) {
-
-  .layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    position: relative;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-  }
-
-  .profile-img {
-    margin: auto;
-  }
-
-  .social-links {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .content {
-    padding: 2rem 1.5rem;
-  }
-
+.research-card.expanded .details{
+max-height:200px;
+opacity:1;
 }
