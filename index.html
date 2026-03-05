@@ -5,89 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janelle Jessup</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ocean background -->
-  <div id="particle-canvas-container" aria-hidden="true"></div>
+  <!-- OCEAN / PARTICLE BACKGROUND -->
+  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
 
-  <div class="layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <img src="janelle.jpg" class="avatar" alt="Janelle Jessup">
+    <div class="name">Janelle Jessup</div>
+    <div class="bio">Computational Social Science M.S. Student<br>UC San Diego</div>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <img src="janelle.jpg" alt="Janelle Jessup" class="avatar">
-      <div class="name">Janelle Jessup</div>
-      <div class="bio">Computational Social Science M.S. Student<br>UC San Diego</div>
-      <div class="btn-row-inline">
-        <a href="https://github.com/janellejessup" class="btn-inline">GitHub</a>
-        <a href="https://www.linkedin.com/in/janellejessup653" class="btn-inline">LinkedIn</a>
-        <a href="mailto:jessup.research@gmail.com" class="btn-inline">Email</a>
-      </div>
-    </aside>
+    <div class="btn-row-inline">
+      <a href="https://github.com/janellejessup" class="btn-inline" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/janellejessup653" class="btn-inline" target="_blank">LinkedIn</a>
+      <a href="mailto:jessup.research@gmail.com" class="btn-inline">Email</a>
+    </div>
+  </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-      <section id="about" class="section">
-        <h1>About</h1>
-        <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical communication. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>
+        I am a computational social scientist focused on integrating social theory
+        with quantitative and computational methodologies to analyze complex
+        social systems. My work emphasizes rigorous statistical modeling,
+        careful research design, and clear analytical communication. I am
+        particularly interested in how computational methods can illuminate
+        patterns of inequality, social behavior, and institutional dynamics.
+      </p>
+    </section>
 
-        <h2>Skills</h2>
-        <ul>
-          <li>Python, R, STATA, SPSS</li>
-          <li>Social Network Analysis & Quantitative Methods</li>
-          <li>Data Visualization & Statistical Modeling</li>
-        </ul>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <ul class="project-list">
+        <li><strong>Statistical Computing and Inference from Data</strong> — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
+        <li><strong>San Diego Hunger Coalition Impact Report</strong> — Contributed to the annual regional nutrition insecurity report used by nonprofit leaders and policymakers.</li>
+        <li><strong>Public Opinion & Voting Thesis</strong> — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
+      </ul>
+    </section>
 
-        <h2>Experience</h2>
-        <ul>
-          <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. <span class="date">Sept 2025 – Present</span></li>
-          <li><strong>Assistant Project Manager — Davis Research</strong> — Directed over 100 research studies and improved survey design. <span class="date">May 2023 – June 2024</span></li>
-          <li><strong>Summer Undergraduate Researcher — Pepperdine University</strong> — Supported qualitative research on student loneliness and secured IRB approval. <span class="date">June 2023 – Aug 2023</span></li>
-        </ul>
-      </section>
+    <!-- CODE -->
+    <section id="code" class="section">
+      <h2>Code</h2>
+      <ul class="link-list">
+        <li><a href="#">Repository Name</a> — Short description.</li>
+        <li><a href="#">Repository Name</a> — Short description.</li>
+      </ul>
+    </section>
 
-      <section id="projects" class="section">
-        <h1>Projects</h1>
-        <ul class="project-list">
-          <li><strong>Statistical Computing and Inference from Data</strong> — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
-          <li><strong>San Diego Hunger Coalition Impact Report</strong> — Contributed to the annual regional nutrition insecurity report used by nonprofit leaders and policymakers.</li>
-          <li><strong>Public Opinion & Voting Thesis</strong> — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
-        </ul>
-      </section>
+    <!-- WRITING -->
+    <section id="writing" class="section">
+      <h2>Writing</h2>
+      <ul class="link-list">
+        <li><a href="ocean.html">Interactive Ocean Background</a> — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
+        <li><a href="#">Article Title</a> — Short description.</li>
+      </ul>
+    </section>
 
-      <section id="code" class="section">
-        <h1>Code</h1>
-        <ul class="link-list">
-          <li><a href="#">Repository Name</a> — Short description.</li>
-          <li><a href="#">Repository Name</a> — Short description.</li>
-        </ul>
-      </section>
+  </main>
 
-      <section id="writing" class="section">
-        <h1>Writing</h1>
-        <ul class="link-list">
-          <li><a href="ocean.html">Interactive Ocean Background</a> — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
-          <li><a href="#">Article Title</a> — Short description.</li>
-        </ul>
-      </section>
-
-    </main>
-
-  </div>
-
+  <!-- FOOTER -->
   <footer class="site-footer">
     <p>Built with HTML &amp; CSS · Hosted on GitHub</p>
   </footer>
 
-  <!-- Three.js import map for ocean -->
+  <!-- THREE.JS IMPORT MAP -->
   <script type="importmap">
   {
     "imports": {
@@ -98,8 +91,9 @@
     }
   }
   </script>
+
+  <!-- SCRIPTS -->
   <script type="module" src="ocean-webgpu.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
