@@ -116,3 +116,14 @@ margin-top:10px;
 max-height:200px;
 opacity:1;
 }
+
+section{
+opacity:0;
+transform:translateY(30px);
+transition:all .7s ease;
+}
+
+.section-visible{
+opacity:1;
+transform:translateY(0);
+}
