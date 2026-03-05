@@ -1,131 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelle Jessup</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Janelle Jessup</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
 </head>
+
 <body>
-  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <nav class="nav">
-      <a href="/" class="logo">Janelle Jessup</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#code">Code</a></li>
-        <li><a href="#writing">Writing</a></li>
-      </ul>
-    </nav>
-  </header>
+<div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
 
-  <main>
-    <section id="about" class="section about">
-      <h2>About</h2>
+<div class="layout">
 
-<div class="about-intro">
-  <div class="about-photo">
-    <img src="images/janelle.jpg" alt="Photo of Janelle Jessup">
-  </div>
+<!-- SIDEBAR -->
 
-  <div class="about-text">
-    <p>
-      I am a computational social scientist passionate about integrating social theory with advanced quantitative and computational methodologies to analyze complex social systems. My work is grounded in rigorous statistical modeling, research design, and systematic analytical approaches, executed with methodological precision and a deeply detail-oriented approach. I bring strong project leadership across the research lifecycle, ensuring strategic planning, cross-functional coordination, and clear stakeholder communication. Guided by a refined visual sensibility and artistic eye, I transform complex data into analytically robust, aesthetically intentional visualizations that surface nuanced patterns and support evidence-driven decision-making.
-    </p>
+<aside class="sidebar">
 
-    <div class="about-links">
-      <a href="https://www.linkedin.com/in/janelle-jessup-46abba25b/" target="_blank" class="about-btn">
-        LinkedIn
-      </a>
+<img src="janelle.jpg" class="profile-img" alt="Janelle Jessup">
 
-      <a href="mailto:jessup.research@gmail.com" class="about-btn">
-        Email
-      </a>
-    </div>
-  </div>
+<h1>Janelle Jessup</h1>
+
+<p class="bio">
+Computational Social Science M.S. Student<br>
+UC San Diego
+</p>
+
+<div class="social-links">
+<a href="https://github.com/janellejessup">GitHub</a>
+<a href="https://www.linkedin.com/in/janellejessup653">LinkedIn</a>
+<a href="mailto:jessup.research@gmail.com">Email</a>
 </div>
-      
-      <h3>Skills & Interests</h3>
-      <ul>
-        <li><strong>Technical Skills:</strong> Python, R, STATA, SPSS, Microsoft Suite, Google Applications</li>
-        <li><strong>Interests:</strong> Statistical analysis, Quantitative methods, Social stratification, Race/Ethnic relations, Demography, Deviance, Social networks</li>
-        <li><strong>Language Skills:</strong> Native fluency in English, Working proficiency in Spanish</li>
-      </ul>
 
-      <h3>Education</h3>
-      <ul>
-        <li>University of California San Diego, M.S., Computational Social Science (Expected Graduation June 2026)</li>
-        <li>Pepperdine University, B.A., Sociology, minor in Quantitative Methods and Research Methodology (August 2021–May 2025)</li>
-      </ul>
+</aside>
 
-      <h3>Experience</h3>
-      <ul>
-        <li><strong>Student Data Analyst, San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data, producing visualizations to guide policy, funding, and resource allocation. (Sept 2025–Present)</li>
-        <li><strong>Assistant Project Manager, Davis Research</strong> — Directed 100+ research studies, optimizing survey design and methodological rigor while delivering statistically grounded insights through cross-functional coordination and quality-controlled reports. (May 2023–June 2024)</li>
-        <li><strong>Summer Undergraduate Researcher, Pepperdine University</strong> — Supported qualitative research on student loneliness by developing instruments, securing IRB approval, coordinating focus groups, and refining human-subjects research methodology. (June 2023–Aug 2023)</li>
-        <li><strong>Professional Caretaker, Care.com</strong> — Provided structured, evidence-based childcare across age groups, managing logistics and maintaining exceptional client satisfaction. (May 2022–Present)</li>
-        <li><strong>Student Data Analyst, Pepperdine University</strong> — Designed and deployed a university-wide survey on religiosity and social deviance, analyzing 300+ responses with SPSS and Excel, producing data visualizations and statistical interpretations.</li>
-      </ul>
-    </section>
 
-    <section id="projects" class="section projects">
-      <h2>Projects</h2>
-      <p>Selected project samples.</p>
-      <ul class="project-list">
-        <li>
-          <strong>Statistical Computing and Inference from Data</strong> — Replicated a published quantitative study, cleaning and analyzing survey data with regression and visualization to assess substance use associations with academic performance and engagement.
-        </li>
-        <li>
-          <strong>San Diego Hunger Coalition Impact Report</strong> — Contributed and finalized the annual nutrition insecurity report for stakeholders and policymakers. 
-        </li>
-        <li>
-          <strong>Public Opinion & Voting Thesis</strong> — Analyzed University of Michigan data in STATA, assessing religiosity’s impact on social satisfaction through regression, interaction, and mean comparisons, synthesizing findings into a cohesive term thesis.
-        </li>
-      </ul>
-    </section>
+<!-- MAIN CONTENT -->
 
-    <section id="code" class="section code">
-      <h2>Code</h2>
-      <p>Internal repositories and code contributions.</p>
-      <ul class="link-list">
-        <li><a href="#">Repository name one</a> — One-line description.</li>
-        <li><a href="#">Repository name two</a> — One-line description.</li>
-        <li><a href="#">Repository name three</a> — One-line description.</li>
-      </ul>
-    </section>
+<main class="content">
 
-    <section id="writing" class="section writing">
-      <h2>Writing</h2>
-      <p>Technical documentation and articles.</p>
-      <ul class="link-list">
-        <li><a href="ocean.html">Ocean background</a> — Technology, math, and how the interactive ocean works.</li>
-        <li><a href="#">Document title one</a> — One-line description.</li>
-        <li><a href="#">Document title two</a> — One-line description.</li>
-        <li><a href="#">Document title three</a> — One-line description.</li>
-      </ul>
-    </section>
-  </main>
+<section id="about">
 
-  <footer class="site-footer">
-    <p>Built with HTML &amp; CSS · Hosted on GitHub</p>
-  </footer>
+<h2>About</h2>
 
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "./vendor/three-webgpu/three.webgpu.js",
-        "three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
-        "three/tsl": "./vendor/three-webgpu/three.tsl.js",
-        "three/addons/": "./vendor/three-webgpu/jsm/"
-      }
-    }
-  </script>
-  <script type="module" src="ocean-webgpu.js"></script>
-  <script src="script.js"></script>
+<p>
+I am a computational social scientist focused on integrating social theory
+with quantitative and computational methodologies to analyze complex
+social systems. My work emphasizes rigorous statistical modeling,
+careful research design, and clear analytical communication. I am
+particularly interested in how computational methods can illuminate
+patterns of inequality, social behavior, and institutional dynamics.
+</p>
+
+</section>
+
+
+<!-- RESEARCH -->
+
+<section id="research">
+
+<h2>Research</h2>
+
+<p class="section-intro">
+Selected research projects exploring computational methods for
+understanding social, behavioral, and multimodal data.
+</p>
+
+<div class="research-grid">
+
+<div class="research-bubble">
+
+<h3>Multimodal Model Evaluation and Interpretability</h3>
+
+<p class="research-summary">
+Evaluating how audio and vision foundation models represent semantic
+information across modalities.
+</p>
+
+<div class="research-details">
+
+<h4>Description</h4>
+
+<p>
+This project investigates whether modern vision and audio foundation
+models develop similar internal representations of semantic concepts.
+While most multimodal research focuses on language–vision alignment,
+direct comparisons between auditory and visual models remain limited.
+This work analyzes whether shared semantic structure emerges across
+modalities even when models are trained independently.
+</p>
+
+<h4>Data</h4>
+
+<p>
+A controlled multimodal dataset was constructed using audio clips
+and captions from the AudioCaps dataset. Corresponding images were
+generated using Stable Diffusion to ensure consistent semantic
+content across both audio and visual inputs.
+</p>
+
+<h4>Method</h4>
+
+<p>
+Embeddings are extracted from pretrained foundation models
+(BEATs for audio and DINOv2 for vision). Representation similarity
+metrics such as Centered Kernel Alignment (CKA) and Representational
+Similarity Analysis (RSA) are used to measure alignment across
+layers and model architectures.
+</p>
+
+<h4>Outcome</h4>
+
+<p>In progress.</p>
+
+<h4>Skills</h4>
+
+<p class="skills">
+Python · PyTorch · Hugging Face · Diffusion Models · DINOv2 ·
+BEATs · CKA · RSA
+</p>
+
+<h4>Resources</h4>
+
+<ul class="resource-links">
+<li><a href="#">Code</a></li>
+<li><a href="#">Paper / PDF</a></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section>
+
+<h2>Skills & Interests</h2>
+
+<ul class="info-list">
+
+<li>
+<strong>Technical Skills:</strong>
+Python, R, STATA, SPSS, Microsoft Office, Google Workspace
+</li>
+
+<li>
+<strong>Research Interests:</strong>
+Statistical analysis, quantitative methods, social stratification,
+race and ethnic relations, demography, deviance, social networks
+</li>
+
+<li>
+<strong>Languages:</strong>
+Native English · Working Spanish
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section>
+
+<h2>Education</h2>
+
+<ul class="info-list">
+
+<li>
+<strong>University of California San Diego</strong><br>
+M.S., Computational Social Science<br>
+Expected June 2026
+</li>
+
+<li>
+<strong>Pepperdine University</strong><br>
+B.A., Sociology<br>
+Minor: Quantitative Methods and Research Methodology<br>
+Aug 2021 – May 2025
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section>
+
+<h2>Experience</h2>
+
+<ul class="experience-list">
+
+<li>
+<strong>Student Data Analyst — San Diego Hunger Coalition</strong><br>
+Designed equity-centered analytical frameworks integrating
+multi-source demographic and food insecurity data. Produced
+visualizations and reports used to inform policy decisions and
+resource allocation.
+<span class="date">Sept 2025 – Present</span>
+</li>
+
+<li>
+<strong>Assistant Project Manager — Davis Research</strong><br>
+Directed over 100 research studies, improving survey design and
+methodological rigor while coordinating cross-functional teams
+and delivering statistical reports.
+<span class="date">May 2023 – June 2024</span>
+</li>
+
+<li>
+<strong>Summer Undergraduate Researcher — Pepperdine University</strong><br>
+Supported qualitative research on student loneliness by developing
+research instruments, coordinating focus groups, and securing IRB
+approval.
+<span class="date">June 2023 – Aug 2023</span>
+</li>
+
+<li>
+<strong>Professional Caretaker — Care.com</strong><br>
+Provided structured childcare across multiple families while
+managing scheduling and logistics.
+<span class="date">May 2022 – Present</span>
+</li>
+
+<li>
+<strong>Student Data Analyst — Pepperdine University</strong><br>
+Designed and analyzed a campus-wide survey on religiosity and
+social deviance using SPSS and Excel.
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<ul class="project-list">
+
+<li>
+<strong>Statistical Computing and Inference from Data</strong> —
+Replicated a published quantitative study by cleaning and
+analyzing survey data with regression modeling and visualization.
+</li>
+
+<li>
+<strong>San Diego Hunger Coalition Impact Report</strong> —
+Contributed to the annual regional nutrition insecurity report
+used by nonprofit leaders and policymakers.
+</li>
+
+<li>
+<strong>Public Opinion & Voting Thesis</strong> —
+Analyzed University of Michigan data in STATA to evaluate how
+religiosity relates to social satisfaction using regression and
+interaction analysis.
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- CODE -->
+
+<section id="code">
+
+<h2>Code</h2>
+
+<ul class="link-list">
+
+<li>
+<a href="#">Repository Name</a> — Short description.
+</li>
+
+<li>
+<a href="#">Repository Name</a> — Short description.
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- WRITING -->
+
+<section id="writing">
+
+<h2>Writing</h2>
+
+<ul class="link-list">
+
+<li>
+<a href="ocean.html">Interactive Ocean Background</a> —
+Technical explanation of the math and rendering behind the
+animated ocean visualization.
+</li>
+
+<li>
+<a href="#">Article Title</a> — Short description.
+</li>
+
+</ul>
+
+</section>
+
+</main>
+
+</div>
+
+
+<footer class="site-footer">
+<p>Built with HTML & CSS · Hosted on GitHub</p>
+</footer>
+
+
+<script type="importmap">
+{
+"imports": {
+"three": "./vendor/three-webgpu/three.webgpu.js",
+"three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
+"three/tsl": "./vendor/three-webgpu/three.tsl.js",
+"three/addons/": "./vendor/three-webgpu/jsm/"
+}
+}
+</script>
+
+<script type="module" src="ocean-webgpu.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
