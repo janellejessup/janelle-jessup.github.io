@@ -34,9 +34,10 @@ body {
   z-index: 2;
 }
 .sidebar .avatar { width: 120px; height: 120px; border-radius: 999px; object-fit: cover; margin-bottom: 10px; border: 3px solid rgba(255,255,255,0.6);}
-.sidebar .name, .sidebar .bio { text-align: center; margin-bottom: 8px; color: var(--sidebar-text);}
+.sidebar .name, .sidebar .bio { text-align: center; margin-bottom: 8px; color: var(--sidebar-text); }
 .sidebar-menu {
   display: flex; flex-direction: column; margin-top: 20px; width: 100%;
+  flex-shrink: 0;
 }
 .sidebar-menu a {
   display: block;
@@ -49,10 +50,11 @@ body {
 }
 .sidebar-menu a:hover { background: var(--accent); color: #FFF0F3; }
 
-/* Bottom links */
+/* Bottom links pinned to bottom */
 .sidebar-bottom-links {
   margin-top: auto;
-  display: flex; flex-direction: column; width: 100%;
+  display: flex; flex-direction: column;
+  width: 100%;
 }
 .sidebar-bottom-links a {
   display: block;
@@ -92,12 +94,12 @@ main {
   padding: 30px 40px;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  margin: 80px auto;
   color: #fff;
-  margin: 120px auto; /* base spacing; overridden for About below */
 }
 .section-bubble h2 { margin-top: 0; margin-bottom: 20px; font-size: 32px; }
 
-/* Section Colors & Gradients */
+/* Section Colors & Gradient */
 #about.section-bubble { background: #5E0931; margin-top: 66vh; color: #FDEBF2; }
 #skills.section-bubble { background: #D16C8B; }
 #experience.section-bubble { background: #E88BAC; }
@@ -115,7 +117,7 @@ footer {
 
 /* Responsive */
 @media(max-width: 920px){
-  .sidebar { width: 100%; flex-direction: row; justify-content: space-around; position: sticky; padding: 20px 0; }
+  .sidebar { width: 100%; flex-direction: row; justify-content: space-around; padding: 20px 0; position: sticky; }
   main { margin-left: 0; width: 100%; padding: 24px 12px; }
   .section-bubble { width: 95%; margin: 80px auto; }
 }
