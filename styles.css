@@ -1,11 +1,17 @@
 /* Reset & base */
-body, html {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #333;
   height: 100%;
+  width: 100%;
+  color: #333;
   overflow-x: hidden;
+  background: #0b0f14; /* fallback in case WebGPU fails */
 }
 
 #particle-canvas-container {
@@ -30,10 +36,10 @@ body, html {
   flex-direction: column;
   align-items: center;
   padding: 2rem 1rem;
-  box-sizing: border-box;
+  font-weight: 600;
 }
 
-.profile-pic {
+.avatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -41,97 +47,99 @@ body, html {
   margin-bottom: 1rem;
 }
 
-.bio h1 {
+.name {
   font-size: 1.2rem;
-  margin: 0;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
 }
 
-.bio p {
-  margin: 0.3rem 0 1.5rem 0;
+.bio {
   font-size: 0.9rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Sidebar navigation */
-.sidebar-nav {
+/* Sidebar nav */
+.sidebar-nav ul {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  margin-bottom: auto;
 }
 
 .sidebar-nav a {
   text-decoration: none;
   color: #69072B;
   font-weight: bold;
-  cursor: pointer;
   transition: color 0.2s;
 }
 
 .sidebar-nav a:hover {
-  color: #FFB6C1;
+  color: #FFB6C1; /* light pink highlight */
 }
 
 /* Sidebar bottom links */
-.sidebar-links {
+.sidebar-bottom {
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: auto;
 }
 
-.sidebar-links a {
+.sidebar-bottom a {
   text-decoration: none;
   color: #69072B;
   font-weight: 600;
   font-size: 0.9rem;
 }
 
-.sidebar-links a:hover {
+.sidebar-bottom a:hover {
   color: #FFB6C1;
 }
 
-/* Content */
+/* Main content */
 .content {
   margin-left: 260px;
   padding: 2rem;
   max-width: 900px;
 }
 
-/* Section headers */
-.content h2 {
-  margin-top: 2rem;
+/* Top spacer to avoid overlap */
+.top-spacer {
+  height: 2rem;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+.section h2 {
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
-#about h2 {
-  color: #FFFFFF;
-}
+/* Bubble gradient classes */
+.bubble-pink1 { background-color: #FADADD; }
+.bubble-pink2 { background-color: #F8C3C3; }
+.bubble-pink3 { background-color: #F5A6A6; }
+.bubble-pink4 { background-color: #F28A8A; }
+.bubble-pink5 { background-color: #F06E6E; }
 
-#experience h2,
-#education h2,
-#skills h2,
-#projects h2,
-#contact h2 {
-  color: #69072B;
-}
+.about-bubble { background-color: #FFFFFF; color: #0b0f14; }
 
-/* Jobs and projects */
-.job, .edu, .project {
-  margin-bottom: 1.5rem;
-}
-
-.job h3, .edu h3, .project h3 {
-  margin: 0;
-}
-
-.job span, .edu span, .project span {
-  font-size: 0.85rem;
-  color: #555;
-}
-
+/* Lists */
 ul {
-  margin-top: 0.5rem;
   margin-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
 }
 
 /* Links */
@@ -151,8 +159,13 @@ a:hover {
     height: auto;
     flex-direction: row;
     padding: 1rem;
+    justify-content: space-between;
   }
-  .sidebar-nav {
+  .sidebar-nav ul {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .sidebar-bottom {
     flex-direction: row;
     gap: 1rem;
   }
