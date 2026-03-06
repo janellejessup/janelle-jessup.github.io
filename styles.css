@@ -1,123 +1,143 @@
-/* Root Colors & Fonts */
 :root {
-  --font: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-
   --sidebar-bg: #F7CBE1;
   --sidebar-text: #5E0931;
-
-  --accent: #D16C8B;
-  --accent2: #F4A6B9;
-  --shadow: 0 10px 30px rgba(0,0,0,0.1);
-  --radius: 24px;
+  --sidebar-hover: #F4A6B9;
+  --bubble-width: 66%;
+  --about-bg: #5E0931;
+  --text-light: #FFF;
+  --bubble-spacing: 60px;
+  --font-sans: 'DM Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Base Styles */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: var(--font);
-  color: #5E0931;
-  background: transparent; /* ocean visible */
-}
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); color: var(--sidebar-text); background: transparent; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 0; left: 0;
-  width: 280px; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
   background: var(--sidebar-bg);
   color: var(--sidebar-text);
-  display: flex; flex-direction: column;
-  align-items: center;
-  padding: 40px 15px;
-  z-index: 2;
-}
-.sidebar .avatar { width: 120px; height: 120px; border-radius: 999px; object-fit: cover; margin-bottom: 10px; border: 3px solid rgba(255,255,255,0.6);}
-.sidebar .name, .sidebar .bio { text-align: center; margin-bottom: 8px; color: var(--sidebar-text); }
-.sidebar-menu {
-  display: flex; flex-direction: column; margin-top: 20px; width: 100%;
-  flex-shrink: 0;
-}
-.sidebar-menu a {
-  display: block;
-  padding: 10px 0;
-  text-align: center;
-  color: var(--sidebar-text);
-  font-weight: 500;
-  border-radius: 12px;
-  transition: background 0.3s;
-}
-.sidebar-menu a:hover { background: var(--accent); color: #FFF0F3; }
-
-/* Bottom links pinned to bottom */
-.sidebar-bottom-links {
-  margin-top: auto;
-  display: flex; flex-direction: column;
-  width: 100%;
-}
-.sidebar-bottom-links a {
-  display: block;
-  text-align: center;
-  padding: 8px 0;
-  margin: 2px 0;
-  color: var(--sidebar-text);
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-.sidebar-bottom-links a:hover { background: var(--accent); color: #FFF0F3; }
-
-/* Main Content */
-main {
-  margin-left: 280px;
-  width: calc(100% - 280px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 0 80px 0;
-}
-
-/* Ocean canvas */
-#particle-canvas-container {
-  position: fixed;
-  top:0; left:0;
-  width: 100vw; height: 100vh;
-  z-index: -10;
-  pointer-events: none;
-}
-#particle-canvas-container canvas { width: 100%; height: 100%; display: block; }
-
-/* Section Bubbles */
-.section-bubble {
-  width: 66%;
-  max-width: 1000px;
-  padding: 30px 40px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 80px auto;
-  color: #fff;
-}
-.section-bubble h2 { margin-top: 0; margin-bottom: 20px; font-size: 32px; }
-
-/* Section Colors & Gradient */
-#about.section-bubble { background: #5E0931; margin-top: 66vh; color: #FDEBF2; }
-#skills.section-bubble { background: #D16C8B; }
-#experience.section-bubble { background: #E88BAC; }
-#projects.section-bubble { background: #F4A6B9; color: #5E0931; }
-#code.section-bubble { background: #F8C1D3; color: #5E0931; }
-#writing.section-bubble { background: #FDEBF2; color: #5E0931; }
-
-/* Footer */
-footer {
-  text-align: center;
   padding: 20px;
-  color: #5E0931;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  z-index: 10;
+}
+.sidebar .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.sidebar .name {
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+}
+.sidebar .bio {
+  font-weight: 500;
   font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.sidebar-nav ul {
+  list-style: none;
+  width: 100%;
+}
+.sidebar-nav li {
+  margin: 10px 0;
+}
+.sidebar-nav a {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.sidebar-nav a:hover {
+  background: var(--sidebar-hover);
+}
+
+/* Bottom pinned links */
+.sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  font-size: 14px;
+}
+.sidebar-bottom a {
+  color: var(--sidebar-text);
+  font-weight: 500;
+}
+.sidebar-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+.content {
+  margin-left: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Top spacer for ocean view */
+.top-spacer {
+  height: 66vh;
+}
+
+/* Bubble sections */
+.section {
+  width: var(--bubble-width);
+  padding: 24px 28px;
+  border-radius: 18px;
+  margin-bottom: var(--bubble-spacing);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* About dark red bubble */
+.about-bubble {
+  background: var(--about-bg);
+  color: var(--text-light);
+}
+
+/* Ascending pink gradient bubbles */
+.bubble-pink1 { background: #FFD6E8; color: #5E0931; }
+.bubble-pink2 { background: #FFCCE0; color: #5E0931; }
+.bubble-pink3 { background: #FFC2D8; color: #5E0931; }
+.bubble-pink4 { background: #FFB8D0; color: #5E0931; }
+.bubble-pink5 { background: #FFADCA; color: #5E0931; }
+
+/* Section headings */
+.section h2 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: var(--text-light);
 }
 
 /* Responsive */
-@media(max-width: 920px){
-  .sidebar { width: 100%; flex-direction: row; justify-content: space-around; padding: 20px 0; position: sticky; }
-  main { margin-left: 0; width: 100%; padding: 24px 12px; }
-  .section-bubble { width: 95%; margin: 80px auto; }
+@media (max-width: 920px) {
+  .sidebar {
+    position: sticky;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .sidebar .avatar, .sidebar .name, .sidebar .bio { display: none; }
+  .content { margin-left: 0; width: 100%; padding: 20px; }
+  .section { width: 90%; }
 }
