@@ -9,8 +9,8 @@
 </head>
 <body>
 
-  <!-- Ocean background canvas -->
-  <canvas id="ocean-canvas"></canvas>
+  <!-- Ocean background -->
+  <div id="particle-canvas-container"></div>
 
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -30,12 +30,12 @@
       </ul>
     </nav>
 
-    <!-- Bottom icons -->
+    <!-- Sidebar bottom icons -->
     <div class="sidebar-bottom">
-      <a href="https://www.linkedin.com/in/janellejessup653" class="icon-bubble" target="_blank" rel="noopener">
+      <a href="https://linkedin.com/in/YOURPROFILE" class="icon-bubble">
         <i class="fab fa-linkedin-in"></i>
       </a>
-      <a href="https://janelle-jessup.github.io" class="icon-bubble" target="_blank" rel="noopener">
+      <a href="https://github.com/YOURUSERNAME" class="icon-bubble">
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -55,9 +55,6 @@
     <!-- Resume -->
     <section id="resume" class="section bubble-pink1">
       <h2>Resume</h2>
-      <ul class="indented">
-        <li>Student Data Analyst — Pepperdine University, Malibu, CA | Aug 2022 – Dec 2022: Examined the relationship between religiosity and social deviance through survey construction, analysis of 300+ responses in SPSS/Excel, and presented results with visualizations and inferences.</li>
-      </ul>
       <iframe
         src="https://docs.google.com/document/d/1oeroevYFiK34qNJ2PJse2TVvE1Cf33tEB7YEWRZRtFw/edit?usp=sharing"
         width="100%"
@@ -70,7 +67,7 @@
     <!-- Skills -->
     <section id="skills" class="section bubble-pink2">
       <h2>Skills</h2>
-      <ul class="indented">
+      <ul>
         <li>Python, R, STATA, SPSS</li>
         <li>Social Network Analysis & Quantitative Methods</li>
         <li>Data Visualization & Statistical Modeling</li>
@@ -80,20 +77,24 @@
     <!-- Experience -->
     <section id="experience" class="section bubble-pink3">
       <h2>Experience</h2>
-      <ul class="indented">
-        <li>Student Data Analyst — San Diego Hunger Coalition: Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
-        <li>Assistant Project Manager — Davis Research: Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
-        <li>Summer Undergraduate Researcher — Pepperdine University: Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
+      <ul>
+        <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
+        <li><strong>Assistant Project Manager — Davis Research</strong> — Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
+        <li><strong>Summer Undergraduate Researcher — Pepperdine University</strong> — Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
       </ul>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="section bubble-pink4">
       <h2>Projects</h2>
-      <ul class="indented">
-        <li>Statistical Computing and Inference from Data — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
-        <li>Public Opinion & Voting Thesis — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
-      </ul>
+      <div class="card">
+        <div class="card-title">Statistical Computing and Inference from Data</div>
+        <p>Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Public Opinion & Voting Thesis</div>
+        <p>Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</p>
+      </div>
     </section>
 
     <!-- Personal -->
@@ -102,14 +103,12 @@
 
       <div class="card">
         <div class="card-title">Canine Friends</div>
-        <p>I am a total pet lover! Here are the man dogs I've had the pleasure of meeting.</p>
-        <!-- insert images here -->
+        <p>Love spending time with my dogs, training them, and exploring outdoor trails together.</p>
       </div>
 
       <div class="card">
         <div class="card-title">Painting</div>
-        <p>In my free time, I'm an avid painter and artist. Here are a few of my pieces.</p>
-        <!-- insert images here -->
+        <p>Enjoy creating abstract and landscape paintings, experimenting with color and texture.</p>
       </div>
 
     </section>
@@ -117,7 +116,7 @@
     <!-- Code -->
     <section id="code" class="section bubble-pink1">
       <h2>Code</h2>
-      <ul class="indented">
+      <ul>
         <li>Repository Name — Short description.</li>
         <li>Repository Name — Short description.</li>
       </ul>
@@ -126,7 +125,7 @@
     <!-- Writing -->
     <section id="writing" class="section bubble-pink2">
       <h2>Writing</h2>
-      <ul class="indented">
+      <ul>
         <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
         <li>Article Title — Short description.</li>
       </ul>
@@ -135,32 +134,6 @@
   </main>
 
   <!-- Ocean WebGPU script -->
-  <script type="module">
-    async function initWebGPU() {
-      if (!navigator.gpu) {
-        document.getElementById('ocean-canvas').insertAdjacentHTML('afterend',
-          '<div class="webgpu-fallback">WebGPU not supported — try Chrome or Edge</div>');
-        return;
-      }
-
-      const canvas = document.getElementById('ocean-canvas');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      const adapter = await navigator.gpu.requestAdapter();
-      if (!adapter) { console.error('WebGPU Adapter not available'); return; }
-      const device = await adapter.requestDevice();
-      const context = canvas.getContext('webgpu');
-      const format = navigator.gpu.getPreferredCanvasFormat();
-      context.configure({ device: device, format: format, alphaMode: 'opaque' });
-
-      import('./ocean-webgpu.js').then(mod => {
-        if (mod.default) mod.default({ device, context, canvas });
-      }).catch(err => console.error('Failed loading ocean-webgpu.js:', err));
-    }
-
-    initWebGPU();
-  </script>
-
+  <script type="module" src="ocean-webgpu.js"></script>
 </body>
 </html>
