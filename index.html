@@ -3,64 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelle Jessup Portfolio</title>
+  <title>Janelle Jessup - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <script type="module" src="ocean-webgpu.js"></script>
 </head>
 <body>
+  <!-- Fullscreen Ocean Background -->
+  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
 
-  <!-- Ocean WebGPU / particle canvas container -->
-  <div id="particle-canvas-container" aria-hidden="true"></div>
-
-  <!-- Main content -->
+  <!-- Main Content -->
   <div class="layout">
-    <header>
-      <h1 id="about-header">ABOUT</h1>
-      <p>Computational Social Scientist | Developer | Graduate Student at UCSD</p>
-      <p>I focus on computational social science, Python programming, data analysis, and interactive visualizations.</p>
+    <header class="intro">
+      <h1 class="about-header">Janelle Jessup</h1>
+      <p class="subtitle">Computational Social Scientist | Developer</p>
+      <p class="contact">Phone: (858) 805-1074 | E-Mail: jessup.research@gmail.com</p>
     </header>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <p><strong>Research Assistant, UCSD Computational Social Science Lab</strong><br>
-      Worked on analyzing substance abuse treatment data and demographic predictors of food insecurity using Python and R.</p>
-      <p><strong>Graduate Teaching Assistant</strong><br>
-      Assisted in teaching computational methods and data analysis to undergraduate students.</p>
+    <section class="about">
+      <h2 class="section-header white-header">ABOUT</h2>
+      <p>
+        I am a quantitative social scientist, adept at applying advanced statistical and computational methods to analyze complex social data. My expertise spans the full research lifecycle, from designing robust studies and managing project execution to performing sophisticated data analysis and visualization. I am driven by the motivation to transform intricate patterns and societal trends into clear, actionable insights that facilitate informed decision-making and strategic understanding.
+      </p>
     </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <p><strong>University of California, San Diego</strong><br>
-      MS in Computational Social Science</p>
-      <p><strong>University of XYZ</strong><br>
-      BA in Sociology</p>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
+    <section class="skills">
+      <h2 class="section-header pink-header">SKILLS & INTERESTS</h2>
       <ul>
-        <li>Python, R, SQL</li>
-        <li>Data analysis & visualization</li>
-        <li>Web development: HTML, CSS, JS, Three.js, WebGPU</li>
-        <li>Machine learning & statistical modeling</li>
+        <li><strong>Technical Skills:</strong> Microsoft Suite, Google Applications, SPSS, STATA, Python, R; CITI Certification to conduct human research</li>
+        <li><strong>Language:</strong> Native fluency in English, Advanced proficiency in Spanish</li>
+        <li><strong>Interests:</strong> Statistical analysis, Quantitative methods, Social stratification, Race/Ethnic relations, Demography, Deviance, Social networks</li>
       </ul>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Portfolio of projects includes interactive data visualizations, WebGPU simulations, and computational social science analyses.</p>
+    <section class="education">
+      <h2 class="section-header pink-header">EDUCATION</h2>
+      <ul>
+        <li><strong>University of California San Diego</strong>, M.S. Computational Social Science, San Diego, CA | Expected June 2026</li>
+        <li><strong>Pepperdine University</strong>, B.A. Sociology, Minor in Survey Research, Magna Cum Laude, Malibu, CA | August 2021 – May 2025</li>
+      </ul>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: janelle.jessup@example.com</p>
+    <section class="experience">
+      <h2 class="section-header pink-header">PROFESSIONAL ANALYTICAL EXPERIENCE</h2>
+      <ul>
+        <li>
+          <strong>San Diego Hunger Coalition</strong>, Student Data Analyst | San Diego, CA | Sep 2025 – Present
+          <ul>
+            <li>Translated complex hunger and food insecurity data into visually compelling infographics for policymakers and nonprofit stakeholders.</li>
+            <li>Designed an equity-centered data framework synthesizing multi-source demographic data to inform policy recommendations and targeted interventions.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Davis Research</strong>, Assistant Project Manager | Calabasas, CA | May 2023 – June 2024
+          <ul>
+            <li>Coordinated 100+ social, political, and market research studies ensuring on-time delivery and client satisfaction.</li>
+            <li>Tested and improved 50+ survey instruments, enhancing data quality and reducing respondent error.</li>
+            <li>Produced statistical reports and actionable insights, collaborating with cross-functional teams to maintain data integrity.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Pepperdine University</strong>, Summer Undergraduate Researcher | Malibu, CA | June 2023 – Aug 2023
+          <ul>
+            <li>Assisted Dr. Khanh Van Bui, PhD., with focus group research on loneliness among students with disabilities, including IRB approval and study materials.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Care.com</strong>, Professional Caretaker | San Diego, CA | May 2022 – Present
+          <ul>
+            <li>Provided high-quality care for children ages 1–12, adapting activities to developmental needs.</li>
+            <li>Maintained excellent relationships with families and 100% positive reviews by applying structured routines and evidence-based caregiving practices.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Pepperdine University</strong>, Student Data Analyst | Malibu, CA | Aug 2022 – Dec 2022
+          <ul>
+            <li>Examined the relationship between religiosity and social deviance by constructing surveys and analyzing 300+ responses using SPSS and Excel.</li>
+            <li>Delivered presentations with analysis, visualizations, and clear inferences.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="projects">
+      <h2 class="section-header pink-header">SELECTED PROJECTS</h2>
+      <ul>
+        <li>
+          <strong>Statistical Computing and Inference from Data</strong>, Student | San Diego, CA | Aug 2025 – Dec 2025
+          <ul>
+            <li>Replicated a published quantitative study, cleaning and analyzing large-scale survey data with regression modeling and visualization.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Public Opinion & Voting Thesis</strong>, Student | Malibu, CA | Jan 2024 – Apr 2024
+          <ul>
+            <li>Analyzed the effect of religiosity on social satisfaction using statistical methods in STATA and aggregate data from University of Michigan.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2 class="section-header pink-header">CONTACT</h2>
+      <p>Email: jessup.research@gmail.com | Phone: (858) 805-1074</p>
     </section>
   </div>
-
-  <!-- Scripts -->
-  <script type="module" src="ocean-webgpu.js"></script>
-  <script src="particle-background.js"></script>
-  <script src="particle-three.js"></script>
-  <script src="script.js"></script>
-
 </body>
 </html>
