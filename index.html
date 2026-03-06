@@ -1,135 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Janelle Jessup | Portfolio</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janelle Jessup - Computational Social Science</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Ocean background container -->
+
+  <!-- Ocean background -->
   <div id="particle-canvas-container"></div>
 
   <!-- Sidebar -->
   <aside class="sidebar">
-    <img src="janelle.jpg" alt="Janelle Jessup" class="profile-pic">
-    <div class="bio">
-      <h1>Janelle Jessup</h1>
-      <p>Computational Social Scientist | Developer</p>
-    </div>
+    <img src="janelle.jpg" alt="Janelle Jessup" class="avatar">
+    <div class="name">Janelle Jessup</div>
+    <div class="bio">MS Computational Social Science, UCSD</div>
+
     <nav class="sidebar-nav">
-      <a href="#about">ABOUT</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills & Interests</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#writing">Writing</a></li>
+      </ul>
     </nav>
-    <div class="sidebar-links">
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
-      <a href="mailto:jessup.research@gmail.com">Email</a>
+
+    <div class="sidebar-bottom">
+      <a href="https://www.linkedin.com/in/janellejessup" target="_blank">LinkedIn</a>
+      <a href="mailto:janelle@example.com">Email</a>
+      <a href="https://github.com/janellejessup" target="_blank">GitHub</a>
     </div>
   </aside>
 
   <!-- Main content -->
   <main class="content">
-    <section id="about">
-      <h2>ABOUT</h2>
-      <p>I am a quantitative social scientist, adept at applying advanced statistical and computational methods to analyze complex social data. My expertise spans the full research lifecycle, from designing robust studies and managing project execution to performing sophisticated data analysis and visualization. I am driven by the motivation to transform intricate patterns and societal trends into clear, actionable insights that facilitate informed decision-making and strategic understanding.</p>
+
+    <!-- Top spacer -->
+    <div class="top-spacer"></div>
+
+    <!-- About -->
+    <section id="about" class="section bubble about-bubble">
+      <h2>About</h2>
+      <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical communication. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
     </section>
 
-    <section id="experience">
+    <!-- Skills -->
+    <section id="skills" class="section bubble bubble-pink1">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python, R, STATA, SPSS</li>
+        <li>Social Network Analysis & Quantitative Methods</li>
+        <li>Data Visualization & Statistical Modeling</li>
+      </ul>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section bubble bubble-pink2">
       <h2>Experience</h2>
-      <div class="job">
-        <h3>San Diego Hunger Coalition | Student Data Analyst</h3>
-        <span>San Diego, CA | Sept 2025 – Present</span>
-        <ul>
-          <li>Translated complex hunger and food insecurity data into visually compelling infographics for policymakers and stakeholders.</li>
-          <li>Designed and implemented equity-centered data framework synthesizing multi-source demographic data to inform policy and targeted interventions.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Davis Research | Assistant Project Manager</h3>
-        <span>Calabasas, CA | May 2023 – June 2024</span>
-        <ul>
-          <li>Coordinated 100+ research studies, ensuring on-time delivery and high client satisfaction.</li>
-          <li>Tested and improved 50+ survey instruments enhancing data quality and reducing dropout rates.</li>
-          <li>Produced statistical reports and actionable insights for clients.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Pepperdine University | Summer Undergraduate Researcher</h3>
-        <span>Malibu, CA | June 2023 – Aug 2023</span>
-        <ul>
-          <li>Assisted in focus group research on loneliness among students with disabilities; developed study materials and gained IRB approval.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Care.com | Professional Caretaker</h3>
-        <span>San Diego, CA | May 2022 – Present</span>
-        <ul>
-          <li>Delivered high-quality care for children aged 1–12, adapting activities to developmental needs.</li>
-          <li>Maintained strong family relationships through clear communication and documentation.</li>
-          <li>Managed scheduling and multi-tasking demands, maintaining 100% positive reviews.</li>
-        </ul>
-      </div>
-      <div class="job">
-        <h3>Pepperdine University | Student Data Analyst</h3>
-        <span>Malibu, CA | Aug 2022 – Dec 2022</span>
-        <ul>
-          <li>Examined religiosity and social deviance via a custom survey distributed campus-wide.</li>
-          <li>Analyzed 300+ responses using SPSS and Excel, delivering presentation with clear visualizations and inferences.</li>
-        </ul>
-      </div>
+      <ul>
+        <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
+        <li><strong>Assistant Project Manager — Davis Research</strong> — Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
+        <li><strong>Summer Undergraduate Researcher — Pepperdine University</strong> — Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
+      </ul>
     </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <div class="edu">
-        <h3>University of California San Diego | M.S. Computational Social Science</h3>
-        <span>San Diego, CA | Expected June 2026</span>
-      </div>
-      <div class="edu">
-        <h3>Pepperdine University | B.A. Sociology, Minor in Survey Research, Magna Cum Laude</h3>
-        <span>Malibu, CA | Aug 2021 – May 2025</span>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills & Interests</h2>
-      <p><strong>Technical Skills:</strong> Microsoft Suite, Google Applications, SPSS, STATA, Python, R; CITI Certification</p>
-      <p><strong>Language:</strong> Native English, Advanced Spanish</p>
-      <p><strong>Interests:</strong> Statistical analysis, Quantitative methods, Social stratification, Race/Ethnic relations, Demography, Deviance, Social networks</p>
-    </section>
-
-    <section id="projects">
+    <!-- Projects -->
+    <section id="projects" class="section bubble bubble-pink3">
       <h2>Projects</h2>
-      <div class="project">
-        <h3>Statistical Computing and Inference from Data | Student</h3>
-        <span>San Diego, CA | Aug 2025 – Dec 2025</span>
-        <ul>
-          <li>Replicated published quantitative study; cleaned and analyzed large-scale survey data with regression modeling and visualization.</li>
-        </ul>
-      </div>
-      <div class="project">
-        <h3>Public Opinion & Voting Thesis | Student</h3>
-        <span>Malibu, CA | Jan 2024 – Apr 2024</span>
-        <ul>
-          <li>Determined effect of religiosity on social satisfaction measures using statistical analysis in STATA.</li>
-          <li>Analyzed University of Michigan aggregate data with regressions, interaction effects, and mean comparisons.</li>
-        </ul>
-      </div>
+      <ul>
+        <li>Statistical Computing and Inference from Data — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
+        <li>San Diego Hunger Coalition Impact Report — Contributed to the annual regional nutrition insecurity report used by nonprofit leaders and policymakers.</li>
+        <li>Public Opinion & Voting Thesis — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
+      </ul>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Phone: (858) 805-1074</p>
-      <p>Email: <a href="mailto:jessup.research@gmail.com">jessup.research@gmail.com</a></p>
+    <!-- Code -->
+    <section id="code" class="section bubble bubble-pink4">
+      <h2>Code</h2>
+      <ul>
+        <li>Repository Name — Short description.</li>
+        <li>Repository Name — Short description.</li>
+      </ul>
     </section>
+
+    <!-- Writing -->
+    <section id="writing" class="section bubble bubble-pink5">
+      <h2>Writing</h2>
+      <ul>
+        <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
+        <li>Article Title — Short description.</li>
+      </ul>
+    </section>
+
   </main>
 
-  <!-- Scripts -->
-  <script src="ocean-webgpu.js"></script>
+  <!-- Ocean WebGPU script -->
+  <script type="module" src="ocean-webgpu.js"></script>
 </body>
 </html>
