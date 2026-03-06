@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Janelle Jessup - Computational Social Science</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ocean background container -->
-  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
+  <!-- Ocean background -->
+  <div id="particle-canvas-container"></div>
 
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -31,7 +28,6 @@
       </ul>
     </nav>
 
-    <!-- Bottom pinned links -->
     <div class="sidebar-bottom">
       <a href="https://www.linkedin.com/in/janellejessup" target="_blank">LinkedIn</a>
       <a href="mailto:janelle@example.com">Email</a>
@@ -42,7 +38,7 @@
   <!-- Main content -->
   <main class="content">
 
-    <!-- Spacer for ocean -->
+    <!-- Top spacer -->
     <div class="top-spacer"></div>
 
     <!-- About -->
@@ -101,20 +97,7 @@
 
   </main>
 
-  <!-- Commented out particle scripts for safety -->
-  <!-- <script src="particle-background.js"></script>
-  <script src="particle-three.js"></script> -->
-
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "./vendor/three-webgpu/three.webgpu.js",
-        "three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
-        "three/tsl": "./vendor/three-webgpu/three.tsl.js",
-        "three/addons/": "./vendor/three-webgpu/jsm/"
-      }
-    }
-  </script>
+  <!-- Ocean WebGPU script -->
   <script type="module" src="ocean-webgpu.js"></script>
 </body>
 </html>
