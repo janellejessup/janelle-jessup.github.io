@@ -4,7 +4,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: #0b0f14;
   color: white;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Fullscreen ocean/particle canvas */
@@ -28,18 +28,23 @@ body {
   padding: 2rem;
   position: relative;
   z-index: 1;
+  width: 100%; /* prevent side scrolling */
 }
 
-/* Section headers (experience, education, skills, etc.) */
-h1, h2, h3, .section-title {
-  color: #8B0000; /* Dark red */
+/* Section headers */
+#about-header {
+  color: white; /* ABOUT stays white */
+}
+
+h2 {
+  color: #C71585; /* Dark pink for all other section headers */
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 /* Section content text */
 p, li, span, a {
-  color: white; /* Keep normal text white */
+  color: white; /* normal text white */
   line-height: 1.6;
 }
 
@@ -61,5 +66,5 @@ header p {
 
 /* Debug panel headers (if using ocean debug) */
 #ocean-debug-panel h2 {
-  color: #8B0000;
+  color: #C71585;
 }
