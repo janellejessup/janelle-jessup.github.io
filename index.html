@@ -1,232 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Janelle Jessup</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<style>
-:root {
-  --bg: transparent;
-  --text: #3D2B2B;
-  --accent: #D16C8B;
-  --accent2: #F4A6B9;
-  --divider: rgba(244,166,185,0.3);
-  --sidebar-bg: #F7CBE1;
-  --sidebar-text: #5E0931;
-  --sidebar-muted: rgba(94,9,49,0.75);
-  --card-bg: rgba(255,255,255,0.85);
-  --shadow: 0 8px 20px rgba(0,0,0,0.1);
-  --radius: 14px;
-  --font: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janelle Jessup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text);
-}
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Sidebar customization */
+    .sidebar {
+      background: #F7CBE1;
+      color: #5E0931;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      width: 280px;
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+    .sidebar .bio {
+      text-align: center;
+      font-weight: 400;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
 
-/* OCEAN BACKGROUND */
-#particle-canvas-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -10;
-  overflow: hidden;
-  pointer-events: none;
-}
-#particle-canvas-container canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
+    /* Main content */
+    main {
+      margin-left: 280px;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-/* SIDEBAR */
-.sidebar {
-  width: 300px;
-  padding: 40px 25px;
-  position: fixed;
-  top: 0;
-  height: 100vh;
-  background: var(--sidebar-bg);
-  color: var(--sidebar-text);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 2;
-  text-align: center;
-  border-right: 1px solid rgba(255,240,243,0.2);
-}
-.sidebar .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 999px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 3px solid rgba(255,255,255,0.5);
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-.sidebar .name {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 4px;
-}
-.sidebar .bio {
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--sidebar-text);
-  margin-bottom: 20px;
-}
+    /* Section bubbles */
+    .section-bubble {
+      width: 66%; /* 2/3 of the available space */
+      max-width: 900px;
+      padding: 28px 32px;
+      border-radius: 20px;
+      margin-bottom: 100px; /* Large gap between sections */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      color: #fff;
+      font-family: "DM Sans", sans-serif;
+    }
 
-/* Sidebar navigation */
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.sidebar-nav a {
-  color: var(--sidebar-text);
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-.sidebar-nav a:hover {
-  color: var(--accent2);
-  transform: translateX(5px);
-}
+    /* Section-specific colors */
+    #about .section-bubble {
+      background-color: #5E0931;
+      color: #FDEBF2;
+      margin-top: 66vh; /* About section starts 2/3 down the viewport */
+    }
+    #skills .section-bubble { background-color: #D16C8B; }
+    #experience .section-bubble { background-color: #E88BAC; }
+    #projects .section-bubble { background-color: #F4A6B9; color: #5E0931; }
+    #code .section-bubble { background-color: #F8C1D3; color: #5E0931; }
+    #writing .section-bubble { background-color: #FDEBF2; color: #5E0931; }
 
-/* MAIN CONTENT */
-.content {
-  margin-left: 300px;
-  padding: 66vh 40px 60px; /* 2/3 screen blank at top */
-  max-width: 900px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px; /* large gap between sections */
-}
+    /* Section titles */
+    .section-bubble h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 28px;
+      color: #fff;
+    }
 
-/* Section bubbles */
-.section-bubble {
-  background: var(--card-bg);
-  padding: 16px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  width: 66%; /* 2/3 size */
-  color: #5E0931;
-  text-align: left;
-}
+    /* Hover effects for sidebar links */
+    .sidebar a {
+      color: #5E0931;
+      text-decoration: none;
+      margin: 6px 0;
+      font-weight: 500;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 6px 0;
+      border-radius: 12px;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #D16C8B;
+      color: #FFF0F3;
+    }
 
-/* About section dark */
-#about .section-bubble {
-  background: #5E0931;
-  color: #fff;
-}
-
-/* Section titles */
-.section-bubble h2 {
-  color: #fff;
-  margin-top: 0;
-}
-
-/* Responsive */
-@media (max-width: 920px) {
-  .sidebar { position: sticky; width: 100%; height: auto; border-right: none; border-bottom: 1px solid rgba(255,240,243,0.2); }
-  .content { margin-left: 0; padding: 66vh 20px 40px; width: 100%; }
-  .section-bubble { width: 90%; }
-}
-</style>
+    /* Responsive */
+    @media (max-width: 920px) {
+      .sidebar { width: 100%; position: sticky; height: auto; }
+      main { margin-left: 0; padding: 24px 18px; }
+      .section-bubble { width: 100%; }
+    }
+  </style>
 </head>
 <body>
+  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
 
-<div id="particle-canvas-container"></div>
-
-<aside class="sidebar">
-  <img src="janelle.jpg" class="avatar" alt="Janelle Jessup">
-  <div class="name">Janelle Jessup</div>
-  <div class="bio">MS Computational Social Science<br>UC San Diego</div>
-
-  <nav class="sidebar-nav">
+  <aside class="sidebar">
+    <img src="janelle.jpg" class="avatar" alt="Janelle Jessup">
+    <div class="name">Janelle Jessup</div>
+    <div class="bio">MS Computational Social Science Student<br>UC San Diego</div>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#code">Code</a>
     <a href="#writing">Writing</a>
-  </nav>
-</aside>
+  </aside>
 
-<main class="content">
-  <section id="about" class="section-bubble">
-    <h2>About</h2>
-    <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical communication. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
-  </section>
+  <main>
+    <section id="about">
+      <div class="section-bubble">
+        <h2>About</h2>
+        <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical communication. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
+      </div>
+    </section>
 
-  <section id="skills" class="section-bubble">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python, R, STATA, SPSS</li>
-      <li>Social Network Analysis & Quantitative Methods</li>
-      <li>Data Visualization & Statistical Modeling</li>
-    </ul>
-  </section>
+    <section id="skills">
+      <div class="section-bubble">
+        <h2>Skills</h2>
+        <ul>
+          <li>Python, R, STATA, SPSS</li>
+          <li>Data Visualization & Statistical Modeling</li>
+          <li>Social Network Analysis & Quantitative Methods</li>
+          <li>Survey Research & Mixed Research Methods</li>
+          <li>Storytelling & Communication</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="experience" class="section-bubble">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
-      <li><strong>Assistant Project Manager — Davis Research</strong> — Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
-      <li><strong>Summer Undergraduate Researcher — Pepperdine University</strong> — Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
-    </ul>
-  </section>
+    <section id="experience">
+      <div class="section-bubble">
+        <h2>Experience</h2>
+        <ul>
+          <li>Student Data Analyst — San Diego Hunger Coalition — Designed equity-centered analytical frameworks. Sept 2025 – Present</li>
+          <li>Assistant Project Manager — Davis Research — Directed over 100 research studies. May 2023 – June 2024</li>
+          <li>Summer Undergraduate Researcher — Pepperdine University — Supported qualitative research and secured IRB approval. June 2023 – Aug 2023</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="projects" class="section-bubble">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Statistical Computing and Inference from Data</strong> — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
-      <li><strong>San Diego Hunger Coalition Impact Report</strong> — Contributed to the annual regional nutrition insecurity report used by nonprofit leaders and policymakers.</li>
-      <li><strong>Public Opinion & Voting Thesis</strong> — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
-    </ul>
-  </section>
+    <section id="projects">
+      <div class="section-bubble">
+        <h2>Projects</h2>
+        <ul>
+          <li>Statistical Computing and Inference from Data — Replicated a published quantitative study.</li>
+          <li>San Diego Hunger Coalition Impact Report — Contributed to the annual regional nutrition insecurity report.</li>
+          <li>Public Opinion & Voting Thesis — Analyzed University of Michigan data to evaluate religiosity and social satisfaction.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="code" class="section-bubble">
-    <h2>Code</h2>
-    <ul>
-      <li>Repository Name — Short description.</li>
-      <li>Repository Name — Short description.</li>
-    </ul>
-  </section>
+    <section id="code">
+      <div class="section-bubble">
+        <h2>Code</h2>
+        <ul>
+          <li>SDHC-UCSD — Short description.</li>
+          <li>Repository Name — Short description.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="writing" class="section-bubble">
-    <h2>Writing</h2>
-    <ul>
-      <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
-      <li>Article Title — Short description.</li>
-    </ul>
-  </section>
-</main>
+    <section id="writing">
+      <div class="section-bubble">
+        <h2>Writing</h2>
+        <ul>
+          <li>Interactive Ocean Background — Technical explanation of the math behind the animated ocean.</li>
+          <li>Article Title — Short description.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-<script type="importmap">
-{
-  "imports": {
-    "three": "./vendor/three-webgpu/three.webgpu.js",
-    "three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
-    "three/tsl": "./vendor/three-webgpu/three.tsl.js",
-    "three/addons/": "./vendor/three-webgpu/jsm/"
-  }
-}
-</script>
-<script type="module" src="ocean-webgpu.js"></script>
-<script src="script.js"></script>
+  <footer class="site-footer">
+    <p>Built with HTML & CSS · Hosted on GitHub</p>
+  </footer>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three-webgpu/three.webgpu.js",
+        "three/webgpu": "./vendor/three-webgpu/three.webgpu.js",
+        "three/tsl": "./vendor/three-webgpu/three.tsl.js",
+        "three/addons/": "./vendor/three-webgpu/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="ocean-webgpu.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
