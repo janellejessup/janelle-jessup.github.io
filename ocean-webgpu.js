@@ -1,31 +1,34 @@
 /**
  * WebGPU Ocean Background
  * Full-viewport animated ocean using Three.js WebGPU
- * Falls back gracefully if WebGPU unsupported
  */
 (function () {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const containerId = 'particle-canvas-container';
   const MAX_RIPPLES = 4;
-  const OCEAN_PARAMS_KEY = 'oceanDebugParams';
 
   let container, camera, scene, renderer, renderPipeline;
-  let water, sun, sky, bloomPass;
+  let water, sun, sky;
   let raycaster, mouse;
-  let rippleQueue = []; // { x, z, time }
-  let rafId = null;
+  let rippleQueue = [];
 
   async function init() {
     // WebGPU check
-    const adapter = await navigator.gpu?.requestAdapter?.();
-    const device = await adapter?.requestDevice?.();
-    if (!device) {
+    if (!navigator.gpu) {
       console.warn('WebGPU not supported; ocean background disabled.');
+      const fallback = document.getElementById(containerId);
+      if (fallback) fallback.style.background = '#001e0f';
       return;
     }
 
-    // Three.js WebGPU import
+    const adapter = await navigator.gpu.requestAdapter();
+    const device = await adapter.requestDevice();
+    if (!device) {
+      console.warn('WebGPU device unavailable.');
+      return;
+    }
+
     const THREE = await import('three/webgpu');
     const { pass } = await import('three/tsl');
     const { bloom } = await import('three/addons/tsl/display/BloomNode.js');
@@ -34,20 +37,13 @@
 
     // Container
     container = document.getElementById(containerId);
-    if (!container) {
-      container = document.createElement('div');
-      container.id = containerId;
-      container.className = 'particle-canvas';
-      document.body.insertBefore(container, document.body.firstChild);
-    }
 
     // Renderer
     renderer = new THREE.WebGPURenderer();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(window.devicePixelRatio || 1);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x001e0f, 1); // fallback ocean color
     renderer.setAnimationLoop(render);
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.1;
     container.appendChild(renderer.domElement);
 
     // Scene & camera
@@ -60,7 +56,7 @@
     renderPipeline = new THREE.RenderPipeline(renderer);
     const scenePass = pass(scene, camera);
     const scenePassColor = scenePass.getTextureNode('output');
-    bloomPass = bloom(scenePassColor);
+    const bloomPass = bloom(scenePassColor);
     bloomPass.threshold.value = 0;
     bloomPass.strength.value = 0.1;
     bloomPass.radius.value = 0;
@@ -73,6 +69,7 @@
     const loader = new THREE.TextureLoader();
     const waterNormals = loader.load('textures/waternormals.jpg');
     waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
+
     water = new WaterMesh(waterGeometry, {
       waterNormals,
       sunDirection: new THREE.Vector3(),
@@ -83,7 +80,7 @@
     water.rotation.x = -Math.PI / 2;
     scene.add(water);
 
-    // Mouse ripple interaction
+    // Mouse ripple
     raycaster = new THREE.Raycaster();
     mouse = new THREE.Vector2();
     document.addEventListener('pointerdown', onPointerDown);
@@ -103,6 +100,7 @@
     // Sun & environment
     const parameters = { elevation: 2, azimuth: 180, exposure: 0.1 };
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
+
     function updateSun() {
       const phi = THREE.MathUtils.degToRad(90 - parameters.elevation);
       const theta = THREE.MathUtils.degToRad(parameters.azimuth);
@@ -133,20 +131,11 @@
   }
 
   function updateRippleUniforms() {
-    const positions = [
-      rippleQueue[rippleQueue.length - 1],
-      rippleQueue[rippleQueue.length - 2] || null,
-      rippleQueue[rippleQueue.length - 3] || null,
-      rippleQueue[rippleQueue.length - 4] || null
-    ];
-    water.ripplePos0.value.set(positions[0]?.x || 0, positions[0]?.z || 0);
-    water.rippleTime0.value = positions[0]?.time || -1000;
-    water.ripplePos1.value.set(positions[1]?.x || 0, positions[1]?.z || 0);
-    water.rippleTime1.value = positions[1]?.time || -1000;
-    water.ripplePos2.value.set(positions[2]?.x || 0, positions[2]?.z || 0);
-    water.rippleTime2.value = positions[2]?.time || -1000;
-    water.ripplePos3.value.set(positions[3]?.x || 0, positions[3]?.z || 0);
-    water.rippleTime3.value = positions[3]?.time || -1000;
+    for (let i = 0; i < MAX_RIPPLES; i++) {
+      const pos = rippleQueue[rippleQueue.length - 1 - i] || { x: 0, z: 0, time: -1000 };
+      water[`ripplePos${i}`].value.set(pos.x, pos.z);
+      water[`rippleTime${i}`].value = pos.time;
+    }
   }
 
   function onWindowResize() {
@@ -160,7 +149,5 @@
     if (renderPipeline) renderPipeline.render();
   }
 
-  init().catch((err) => {
-    console.warn('WebGPU ocean failed to init:', err);
-  });
+  init().catch(err => console.warn('WebGPU ocean failed to init:', err));
 })();
