@@ -1,68 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Janelle Jessup</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Janelle Jessup - Computational Social Science</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
+
+  <!-- Ocean background canvas -->
   <canvas id="ocean-canvas"></canvas>
 
+  <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="sidebar-top">
-      <div class="avatar placeholder"></div>
-      <div class="name">JANELLE JESSUP</div>
+    <img src="janelle.jpg" alt="Janelle Jessup" class="avatar">
+    <div class="name">Janelle Jessup</div>
+    <div class="bio">MS Computational Social Science, UCSD</div>
 
-      <nav class="nav">
-        <a class="nav-link" href="#home">HOME</a>
-        <a class="nav-link" href="#about">ABOUT</a>
-        <a class="nav-link" href="#resume">RESUME</a>
-        <a class="nav-link" href="#research">RESEARCH</a>
-        <a class="nav-link" href="#projects">PROJECTS</a>
-        <a class="nav-link" href="#personal">PERSONAL</a>
-        <a class="nav-link" href="#skills">SKILLS</a>
-        <a class="nav-link" href="#contact">CONTACT</a>
-      </nav>
-    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#personal">Personal</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#writing">Writing</a></li>
+      </ul>
+    </nav>
 
+    <!-- Bottom icons -->
     <div class="sidebar-bottom">
-      <a class="icon-bubble" href="https://www.linkedin.com/in/janellejessup653" target="_blank" rel="noopener">in</a>
-      <a class="icon-bubble" href="https://janelle-jessup.github.io" target="_blank" rel="noopener">GH</a>
+      <a href="https://www.linkedin.com/in/janellejessup653" class="icon-bubble" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://janelle-jessup.github.io" class="icon-bubble" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
   </aside>
 
+  <!-- Main content -->
   <main class="content">
 
-    <section id="home" class="section">
-      <h1>Janelle Jessup</h1>
-    </section>
+    <div class="top-spacer"></div>
 
+    <!-- About -->
     <section id="about" class="section about-bubble">
-      <h1>About</h1>
-      <p>
-        I am a Computational Social Science M.S. student at the University of California, San Diego with a background in psychology and communication. My work sits at the intersection of machine learning and the behavioral and cognitive sciences, where I use statistical and computational methods to study how models represent information and how their behavior can be measured and evaluated.
-      </p>
-
-      <p>
-        My research focuses on the evaluation of modern machine learning models, using representation learning, multimodal models, and large-scale datasets to investigate how models encode semantic information and how representations align across modalities.
-      </p>
-
-      <p>
-        More broadly, I am interested in human-centered approaches to machine learning and how careful evaluation, combined with insights from behavioral and cognitive science, can improve our understanding of model behavior and help support the development of more reliable and responsible AI systems.
-      </p>
+      <h2>About</h2>
+      <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical processes. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
     </section>
 
-    <section id="resume" class="section">
-      <h1>Resume</h1>
+    <!-- Resume -->
+    <section id="resume" class="section bubble-pink1">
+      <h2>Resume</h2>
+      <ul class="indented">
+        <li>Student Data Analyst — Pepperdine University, Malibu, CA | Aug 2022 – Dec 2022: Examined the relationship between religiosity and social deviance through survey construction, analysis of 300+ responses in SPSS/Excel, and presented results with visualizations and inferences.</li>
+      </ul>
       <iframe
-        src="https://drive.google.com/file/d/1mY1E7BTnBBYtzHGEWtTLl0i_qZtIyzvq/preview"
+        src="https://docs.google.com/document/d/1oeroevYFiK34qNJ2PJse2TVvE1Cf33tEB7YEWRZRtFw/edit?usp=sharing"
         width="100%"
         height="650"
         style="border: none;"
@@ -70,94 +67,100 @@
       </iframe>
     </section>
 
-    <section id="research" class="section">
-      <h1>Research</h1>
-
-      <!-- Research Cards as before -->
+    <!-- Skills -->
+    <section id="skills" class="section bubble-pink2">
+      <h2>Skills</h2>
+      <ul class="indented">
+        <li>Python, R, STATA, SPSS</li>
+        <li>Social Network Analysis & Quantitative Methods</li>
+        <li>Data Visualization & Statistical Modeling</li>
+      </ul>
     </section>
 
-    <section id="projects" class="section">
-      <h1>Projects</h1>
-      <p class="small">Selected course and research projects focused on model evaluation, statistical analysis, and reproducible workflows.</p>
-
-      <!-- Example project card -->
-      <div class="card">
-        <div class="card-title">Evaluating Moral Framing Bias in Large Language Models</div>
-        <div class="two-col">
-          <div>
-            <h4>Question</h4>
-            <p>
-              Do large language models exhibit the same omission bias observed in human moral psychology, where harmful actions (commissions) are judged as more wrong than equally harmful failures to act (omissions)?
-            </p>
-
-            <h4>Data</h4>
-            <p>
-              Constructed 14 commission–omission minimal pairs based on scenarios from moral psychology experiments.
-            </p>
-          </div>
-
-          <div>
-            <h4>Method</h4>
-            <p>Evaluated four autoregressive language models (GPT-2, GPT-2-Medium, GPT-2-Large, GPT-Neo-125M) using next-token prediction to compute the conditional probability of moral evaluation words.</p>
-            <h4>Result</h4>
-            <p>Across models and conditions, LLMs did not reproduce the human omission bias.</p>
-          </div>
-        </div>
-
-        <h3>Skills</h3>
-        <div class="meta">
-          <span class="pill">Python</span>
-          <span class="pill">Transformers</span>
-          <span class="pill">Hugging Face</span>
-          <span class="pill">Prompt Design</span>
-          <span class="pill">Surprisal Analysis</span>
-          <span class="pill">LLM Evaluation</span>
-          <span class="pill">Experimental Design</span>
-          <span class="pill">Data Visualization</span>
-        </div>
-      </div>
+    <!-- Experience -->
+    <section id="experience" class="section bubble-pink3">
+      <h2>Experience</h2>
+      <ul class="indented">
+        <li>Student Data Analyst — San Diego Hunger Coalition: Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
+        <li>Assistant Project Manager — Davis Research: Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
+        <li>Summer Undergraduate Researcher — Pepperdine University: Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
+      </ul>
     </section>
 
-    <section id="personal" class="section">
-      <h1>Personal</h1>
+    <!-- Projects -->
+    <section id="projects" class="section bubble-pink4">
+      <h2>Projects</h2>
+      <ul class="indented">
+        <li>Statistical Computing and Inference from Data — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
+        <li>Public Opinion & Voting Thesis — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
+      </ul>
+    </section>
+
+    <!-- Personal -->
+    <section id="personal" class="section bubble-pink5">
+      <h2>Personal</h2>
 
       <div class="card">
         <div class="card-title">Canine Friends</div>
-        <p>I am a total pet lover! Here are the man dogs I've had the pleasure of meeting:</p>
+        <p>I am a total pet lover! Here are the man dogs I've had the pleasure of meeting.</p>
         <!-- insert images here -->
       </div>
 
       <div class="card">
         <div class="card-title">Painting</div>
-        <p>In my free time, I'm an avid painter and artist. Here are a few of my pieces:</p>
+        <p>In my free time, I'm an avid painter and artist. Here are a few of my pieces.</p>
         <!-- insert images here -->
       </div>
+
     </section>
 
-    <section id="skills" class="section">
-      <h1>Skills & Tools</h1>
-      <!-- Skills grid as before -->
+    <!-- Code -->
+    <section id="code" class="section bubble-pink1">
+      <h2>Code</h2>
+      <ul class="indented">
+        <li>Repository Name — Short description.</li>
+        <li>Repository Name — Short description.</li>
+      </ul>
     </section>
 
-    <section id="contact" class="section">
-      <h1>Contact</h1>
-      <div class="card">
-        <ul class="contact-list">
-          <li><strong>Email:</strong> <a href="mailto:janelle@example.com">janelle@example.com</a></li>
-          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/janellejessup653" target="_blank" rel="noopener">linkedin.com/in/janellejessup653</a></li>
-          <li><strong>GitHub:</strong> <a href="https://janelle-jessup.github.io" target="_blank" rel="noopener">janelle-jessup.github.io</a></li>
-        </ul>
-      </div>
-
-      <footer class="footer">
-        <span class="small muted">© <span id="year"></span> Janelle Jessup • Built with GitHub Pages</span>
-      </footer>
+    <!-- Writing -->
+    <section id="writing" class="section bubble-pink2">
+      <h2>Writing</h2>
+      <ul class="indented">
+        <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
+        <li>Article Title — Short description.</li>
+      </ul>
     </section>
 
   </main>
 
-  <script src="vendor/three-webgpu/three.min.js"></script>
-  <script src="ocean-webgpu.js"></script>
-  <script src="script.js"></script>
+  <!-- Ocean WebGPU script -->
+  <script type="module">
+    async function initWebGPU() {
+      if (!navigator.gpu) {
+        document.getElementById('ocean-canvas').insertAdjacentHTML('afterend',
+          '<div class="webgpu-fallback">WebGPU not supported — try Chrome or Edge</div>');
+        return;
+      }
+
+      const canvas = document.getElementById('ocean-canvas');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const adapter = await navigator.gpu.requestAdapter();
+      if (!adapter) { console.error('WebGPU Adapter not available'); return; }
+      const device = await adapter.requestDevice();
+      const context = canvas.getContext('webgpu');
+      const format = navigator.gpu.getPreferredCanvasFormat();
+      context.configure({ device: device, format: format, alphaMode: 'opaque' });
+
+      import('./ocean-webgpu.js').then(mod => {
+        if (mod.default) mod.default({ device, context, canvas });
+      }).catch(err => console.error('Failed loading ocean-webgpu.js:', err));
+    }
+
+    initWebGPU();
+  </script>
+
 </body>
 </html>
