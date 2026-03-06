@@ -12,6 +12,14 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--font-sans); background: transparent; color: var(--sidebar-text); }
 
+/* Ensure ocean canvas behind all content */
+#particle-canvas-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+}
+
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -27,29 +35,16 @@ body { font-family: var(--font-sans); background: transparent; color: var(--side
   z-index: 10;
 }
 .sidebar .avatar {
-  width: 120px;
-  height: 120px;
+  width: 120px; height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 12px;
 }
-.sidebar .name {
-  font-weight: 600;
-  font-size: 18px;
-  text-align: center;
-  color: var(--sidebar-text);
-}
-.sidebar .bio {
-  font-weight: 500;
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--sidebar-text);
-}
-.sidebar-nav ul {
-  list-style: none;
-  width: 100%;
-}
+.sidebar .name, .sidebar .bio { text-align: center; color: var(--sidebar-text); }
+.sidebar .name { font-weight: 600; font-size: 18px; }
+.sidebar .bio { font-weight: 500; font-size: 14px; margin-bottom: 20px; }
+
+.sidebar-nav ul { list-style: none; width: 100%; }
 .sidebar-nav li { margin: 8px 0; }
 .sidebar-nav a {
   display: block;
@@ -95,10 +90,7 @@ body { font-family: var(--font-sans); background: transparent; color: var(--side
 }
 
 /* About dark red bubble */
-.about-bubble {
-  background: var(--about-bg);
-  color: white;
-}
+.about-bubble { background: var(--about-bg); color: white; }
 
 /* Ascending pink gradient bubbles */
 .bubble-pink1 { background: #FFD6E8; color: var(--sidebar-text); }
@@ -107,16 +99,16 @@ body { font-family: var(--font-sans); background: transparent; color: var(--side
 .bubble-pink4 { background: #FFB8D0; color: var(--sidebar-text); }
 .bubble-pink5 { background: #FFADCA; color: var(--sidebar-text); }
 
-/* Section headings */
-.section h2 {
+/* Section headings dark red */
+.section h2 { 
   margin-bottom: 12px;
   font-size: 22px;
-  color: white;
+  color: var(--sidebar-text);
 }
 
-/* Responsive */
+/* Responsive adjustments */
 @media (max-width: 920px) {
-  .sidebar { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: space-around; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .sidebar { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: space-around; border-bottom: 1px solid rgba(0,0,0,0.1); }
   .sidebar .avatar, .sidebar .name, .sidebar .bio { display: none; }
   .content { margin-left: 0; width: 100%; }
   .section { width: 90%; }
