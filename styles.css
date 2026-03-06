@@ -3,7 +3,6 @@
   --sidebar-text: #5E0931;
   --sidebar-hover: #F4A6B9;
   --bubble-width: 66%;
-  --about-bg: #5E0931;
   --bubble-spacing: 60px;
   --font-sans: 'DM Sans', system-ui, sans-serif;
 }
@@ -111,17 +110,28 @@ html, body {
   margin-bottom: var(--bubble-spacing);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   text-align: left;
+  background: rgba(255, 255, 255, 0.05); /* light transparent overlay for non-about bubbles */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
-/* About dark red bubble */
-.about-bubble { background: var(--about-bg); color: white; }
+/* About bubble: transparent to show ocean, text white, subtle blur & shadow for readability */
+.about-bubble { 
+  background: transparent; /* ocean shows through */
+  color: white; 
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.about-bubble p {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
 
-/* Ascending pink gradient bubbles */
-.bubble-pink1 { background: #FFD6E8; color: var(--sidebar-text); }
-.bubble-pink2 { background: #FFCCE0; color: var(--sidebar-text); }
-.bubble-pink3 { background: #FFC2D8; color: var(--sidebar-text); }
-.bubble-pink4 { background: #FFB8D0; color: var(--sidebar-text); }
-.bubble-pink5 { background: #FFADCA; color: var(--sidebar-text); }
+/* Ascending pink gradient bubbles (optional overlay for readability) */
+.bubble-pink1 { background: rgba(255, 214, 232, 0.6); color: var(--sidebar-text); }
+.bubble-pink2 { background: rgba(255, 204, 224, 0.6); color: var(--sidebar-text); }
+.bubble-pink3 { background: rgba(255, 194, 216, 0.6); color: var(--sidebar-text); }
+.bubble-pink4 { background: rgba(255, 184, 208, 0.6); color: var(--sidebar-text); }
+.bubble-pink5 { background: rgba(255, 173, 202, 0.6); color: var(--sidebar-text); }
 
 /* Section headings dark red */
 .section h2 { 
