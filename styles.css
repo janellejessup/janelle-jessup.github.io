@@ -20,12 +20,10 @@ html, body {
 }
 
 /* Ocean canvas */
-#particle-canvas-container {
+#ocean-canvas {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   z-index: 0;
   background: #001e0f;
 }
@@ -33,46 +31,21 @@ html, body {
 /* Sidebar */
 .sidebar {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 300px;
-  height: 100vh;
+  top: 0; left: 0;
+  width: 300px; height: 100vh;
   background: var(--sidebar-bg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  z-index: 10;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 20px; z-index: 10;
 }
 
-.sidebar .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 12px;
-}
-
-.sidebar .name,
-.sidebar .bio {
-  text-align: center;
-  color: var(--sidebar-text);
-}
-
+.sidebar .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+.sidebar .name, .sidebar .bio { text-align: center; color: var(--sidebar-text); }
 .sidebar .name { font-weight: 600; font-size: 18px; }
 .sidebar .bio { font-weight: 500; font-size: 14px; margin-bottom: 20px; }
 
 .sidebar-nav ul { list-style: none; width: 100%; }
 .sidebar-nav li { margin: 8px 0; }
-.sidebar-nav a {
-  display: block;
-  padding: 8px 14px;
-  border-radius: 8px;
-  color: var(--sidebar-text);
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.2s;
-}
+.sidebar-nav a { display: block; padding: 8px 14px; border-radius: 8px; color: var(--sidebar-text); text-decoration: none; font-size: 16px; transition: 0.2s; }
 .sidebar-nav a:hover { background: var(--sidebar-hover); }
 
 /* Sidebar bottom icons */
@@ -85,14 +58,11 @@ html, body {
 }
 
 .icon-bubble {
-  width: 42px;
-  height: 42px;
+  width: 42px; height: 42px;
   border-radius: 50%;
   background: #520B33;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   text-decoration: none;
   font-size: 18px;
   transition: all 0.2s ease;
@@ -104,37 +74,20 @@ html, body {
 }
 
 /* Main content */
-.content {
-  margin-left: 300px;
-  max-width: calc(100vw - 300px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 20px 80px 20px;
-  position: relative;
-  z-index: 5;
-}
-
-/* Top spacer */
+.content { margin-left: 300px; max-width: calc(100vw - 300px); display: flex; flex-direction: column; align-items: center; padding: 0 20px 80px 20px; position: relative; z-index: 5; }
 .top-spacer { height: 66vh; }
 
 /* Sections */
 .section {
-  width: var(--bubble-width);
-  max-width: 100%;
-  padding: 24px 28px;
-  border-radius: 18px;
-  margin-bottom: var(--bubble-spacing);
+  width: var(--bubble-width); max-width: 100%; padding: 24px 28px; border-radius: 18px; margin-bottom: var(--bubble-spacing);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  text-align: left;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  text-align: left; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
 }
 
 /* About bubble */
-.about-bubble { background: white; color: #520B33; }
-.about-bubble h2 { color: #520B33; }
-.about-bubble p { color: #520B33; }
+.about-bubble { background: #520B33; color: white; }
+.about-bubble h2 { color: white; }
+.about-bubble p { color: white; }
 
 /* Ascending pink gradient bubbles */
 .bubble-pink1 { background: #FCE9F4; }
@@ -144,27 +97,14 @@ html, body {
 .bubble-pink5 { background: #E692CA; }
 
 /* Section headings */
-.section h2 {
-  margin-bottom: 12px;
-  font-size: 22px;
-  color: var(--sidebar-text);
-}
+.section h2 { margin-bottom: 12px; font-size: 22px; color: var(--sidebar-text); }
 
 /* Cards */
-.card {
-  background: white;
-  border-radius: 14px;
-  padding: 24px;
-  margin-top: 24px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
+.card { background: white; border-radius: 14px; padding: 24px; margin-top: 24px; box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+.card-title { font-size: 20px; font-weight: 600; margin-bottom: 18px; color: var(--sidebar-text); }
 
-.card-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 18px;
-  color: var(--sidebar-text);
-}
+/* Indented lists */
+ul.indented { padding-left: 20px; }
 
 /* Responsive */
 @media (max-width: 920px) {
