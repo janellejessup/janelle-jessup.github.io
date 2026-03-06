@@ -3,101 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelle Jessup - Computational Social Science</title>
+  <title>Janelle Jessup Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Ocean background -->
-  <div id="particle-canvas-container"></div>
-
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <img src="janelle.jpg" alt="Janelle Jessup" class="avatar">
-    <div class="name">Janelle Jessup</div>
-    <div class="bio">MS Computational Social Science, UCSD</div>
-
-    <nav class="sidebar-nav">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#code">Code</a></li>
-        <li><a href="#writing">Writing</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-bottom">
-      <a href="https://www.linkedin.com/in/janellejessup" target="_blank">LinkedIn</a>
-      <a href="mailto:janelle@example.com">Email</a>
-      <a href="https://github.com/janellejessup" target="_blank">GitHub</a>
-    </div>
-  </aside>
+  <!-- Ocean & particle canvas container (WebGPU) -->
+  <div id="particle-canvas-container" aria-hidden="true"></div>
 
   <!-- Main content -->
-  <main class="content">
+  <div class="layout">
+    <header>
+      <h1>Janelle Jessup</h1>
+      <p>Computational Social Scientist | Developer</p>
+    </header>
 
-    <!-- Top spacer -->
-    <div class="top-spacer"></div>
-
-    <!-- About -->
-    <section id="about" class="section bubble about-bubble">
-      <h2>About</h2>
-      <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical communication. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="section bubble bubble-pink1">
-      <h2>Skills</h2>
-      <ul>
-        <li>Python, R, STATA, SPSS</li>
-        <li>Social Network Analysis & Quantitative Methods</li>
-        <li>Data Visualization & Statistical Modeling</li>
-      </ul>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section bubble bubble-pink2">
+    <section id="experience">
       <h2>Experience</h2>
-      <ul>
-        <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
-        <li><strong>Assistant Project Manager — Davis Research</strong> — Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
-        <li><strong>Summer Undergraduate Researcher — Pepperdine University</strong> — Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
-      </ul>
+      <p>Details about work experience go here...</p>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section bubble bubble-pink3">
+    <section id="education">
+      <h2>Education</h2>
+      <p>Details about degrees and institutions go here...</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>Programming, Python, Data Analysis, WebGPU, Three.js...</p>
+    </section>
+
+    <section id="projects">
       <h2>Projects</h2>
-      <ul>
-        <li>Statistical Computing and Inference from Data — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
-        <li>San Diego Hunger Coalition Impact Report — Contributed to the annual regional nutrition insecurity report used by nonprofit leaders and policymakers.</li>
-        <li>Public Opinion & Voting Thesis — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
-      </ul>
+      <p>Portfolio of projects and links.</p>
     </section>
 
-    <!-- Code -->
-    <section id="code" class="section bubble bubble-pink4">
-      <h2>Code</h2>
-      <ul>
-        <li>Repository Name — Short description.</li>
-        <li>Repository Name — Short description.</li>
-      </ul>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: example@email.com</p>
     </section>
-
-    <!-- Writing -->
-    <section id="writing" class="section bubble bubble-pink5">
-      <h2>Writing</h2>
-      <ul>
-        <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
-        <li>Article Title — Short description.</li>
-      </ul>
-    </section>
-
-  </main>
+  </div>
 
   <!-- Ocean WebGPU script -->
   <script type="module" src="ocean-webgpu.js"></script>
+  <!-- Optional: particles scripts -->
+  <script src="particle-background.js"></script>
+  <script src="particle-three.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
