@@ -54,6 +54,7 @@ html, body {
   text-align: center; 
   color: var(--sidebar-text); 
 }
+
 .sidebar .name { font-weight: 600; font-size: 18px; }
 .sidebar .bio { font-weight: 500; font-size: 14px; margin-bottom: 20px; }
 
@@ -98,7 +99,38 @@ html, body {
   background: var(--sidebar-hover);
 }
 
+/* Bottom icon bubbles */
+
+.sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.icon-bubble {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #520B33;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.icon-bubble:hover {
+  transform: translateY(-2px);
+  background: #6b0e42;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
 /* Main content */
+
 .content {
   margin-left: 300px;
   max-width: calc(100vw - 300px);
@@ -109,9 +141,11 @@ html, body {
 }
 
 /* Top spacer */
+
 .top-spacer { height: 66vh; }
 
 /* Sections */
+
 .section {
   width: var(--bubble-width);
   max-width: 100%;
@@ -125,11 +159,10 @@ html, body {
 }
 
 /* About bubble */
+
 .about-bubble {
-  background: transparent;
+  background: #520B33;
   color: white;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
 .about-bubble h2 {
@@ -138,17 +171,18 @@ html, body {
 
 .about-bubble p {
   color: white;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
-/* Ascending pink gradient bubbles */
-.bubble-pink1 { background: rgba(255, 214, 232, 0.7); }
-.bubble-pink2 { background: rgba(255, 204, 224, 0.7); }
-.bubble-pink3 { background: rgba(255, 194, 216, 0.7); }
-.bubble-pink4 { background: rgba(255, 184, 208, 0.7); }
-.bubble-pink5 { background: rgba(255, 173, 202, 0.7); }
+/* Ascending pink gradient bubbles starting with FCE9F4 */
+
+.bubble-pink1 { background: #FCE9F4; }
+.bubble-pink2 { background: #F9D8EA; }
+.bubble-pink3 { background: #F6C7E0; }
+.bubble-pink4 { background: #F3B6D6; }
+.bubble-pink5 { background: #F0A5CC; }
 
 /* Section headings */
+
 .section h2 {
   margin-bottom: 12px;
   font-size: 22px;
@@ -179,6 +213,7 @@ html, body {
 }
 
 /* Two column layout */
+
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -202,6 +237,7 @@ html, body {
 }
 
 /* Skills pills */
+
 .meta {
   display: flex;
   flex-wrap: wrap;
@@ -220,6 +256,7 @@ html, body {
 }
 
 /* Resource links */
+
 .resources {
   display: flex;
   gap: 10px;
@@ -239,6 +276,7 @@ html, body {
 }
 
 /* Responsive */
+
 @media (max-width: 920px) {
 
   .sidebar {
