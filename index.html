@@ -1,24 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelle Jessup</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janelle Jessup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+:root {
+  --bg: transparent;
+  --text: #3D2B2B;
+  --accent: #D16C8B;
+  --accent2: #F4A6B9;
+  --divider: rgba(244,166,185,0.3);
+  --sidebar-bg: #F7CBE1;
+  --sidebar-text: #5E0931;
+  --sidebar-muted: rgba(94,9,49,0.75);
+  --card-bg: rgba(255,255,255,0.85);
+  --shadow: 0 8px 20px rgba(0,0,0,0.1);
+  --radius: 14px;
+  --font: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* OCEAN BACKGROUND */
+#particle-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+#particle-canvas-container canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 300px;
+  padding: 40px 25px;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  text-align: center;
+  border-right: 1px solid rgba(255,240,243,0.2);
+}
+.sidebar .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.sidebar .name {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.sidebar .bio {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--sidebar-text);
+  margin-bottom: 20px;
+}
+
+/* Sidebar navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sidebar-nav a {
+  color: var(--sidebar-text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.sidebar-nav a:hover {
+  color: var(--accent2);
+  transform: translateX(5px);
+}
+
+/* MAIN CONTENT */
+.content {
+  margin-left: 300px;
+  padding: 66vh 40px 60px; /* 2/3 screen blank at top */
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* large gap between sections */
+}
+
+/* Section bubbles */
+.section-bubble {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 66%; /* 2/3 size */
+  color: #5E0931;
+  text-align: left;
+}
+
+/* About section dark */
+#about .section-bubble {
+  background: #5E0931;
+  color: #fff;
+}
+
+/* Section titles */
+.section-bubble h2 {
+  color: #fff;
+  margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 920px) {
+  .sidebar { position: sticky; width: 100%; height: auto; border-right: none; border-bottom: 1px solid rgba(255,240,243,0.2); }
+  .content { margin-left: 0; padding: 66vh 20px 40px; width: 100%; }
+  .section-bubble { width: 90%; }
+}
+</style>
 </head>
 <body>
 
-<!-- Ocean background -->
-<div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
+<div id="particle-canvas-container"></div>
 
-<!-- Sidebar -->
 <aside class="sidebar">
-  <img src="janelle.jpg" alt="Janelle Jessup" class="avatar">
+  <img src="janelle.jpg" class="avatar" alt="Janelle Jessup">
   <div class="name">Janelle Jessup</div>
-  <div class="bio">MS Computational Social Science Student<br>UC San Diego</div>
+  <div class="bio">MS Computational Social Science<br>UC San Diego</div>
 
   <nav class="sidebar-nav">
     <a href="#about">About</a>
@@ -28,30 +163,15 @@
     <a href="#code">Code</a>
     <a href="#writing">Writing</a>
   </nav>
-
-  <div class="btn-row-inline">
-    <a href="https://github.com/janellejessup" class="btn-inline">GitHub</a>
-    <a href="https://www.linkedin.com/in/janellejessup653" class="btn-inline">LinkedIn</a>
-    <a href="mailto:jessup.research@gmail.com" class="btn-inline">Email</a>
-  </div>
 </aside>
 
-<!-- Main content -->
 <main class="content">
-
-  <section id="about" class="section">
+  <section id="about" class="section-bubble">
     <h2>About</h2>
-    <p>
-      I am a computational social scientist focused on integrating social theory
-      with quantitative and computational methodologies to analyze complex
-      social systems. My work emphasizes rigorous statistical modeling,
-      careful research design, and clear analytical communication. I am
-      particularly interested in how computational methods can illuminate
-      patterns of inequality, social behavior, and institutional dynamics.
-    </p>
+    <p>I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical communication. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.</p>
   </section>
 
-  <section id="skills" class="section">
+  <section id="skills" class="section-bubble">
     <h2>Skills</h2>
     <ul>
       <li>Python, R, STATA, SPSS</li>
@@ -60,7 +180,7 @@
     </ul>
   </section>
 
-  <section id="experience" class="section">
+  <section id="experience" class="section-bubble">
     <h2>Experience</h2>
     <ul>
       <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
@@ -69,7 +189,7 @@
     </ul>
   </section>
 
-  <section id="projects" class="section">
+  <section id="projects" class="section-bubble">
     <h2>Projects</h2>
     <ul>
       <li><strong>Statistical Computing and Inference from Data</strong> — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
@@ -78,28 +198,22 @@
     </ul>
   </section>
 
-  <section id="code" class="section">
+  <section id="code" class="section-bubble">
     <h2>Code</h2>
     <ul>
-      <li><a href="#">Repository Name</a> — Short description.</li>
-      <li><a href="#">Repository Name</a> — Short description.</li>
+      <li>Repository Name — Short description.</li>
+      <li>Repository Name — Short description.</li>
     </ul>
   </section>
 
-  <section id="writing" class="section">
+  <section id="writing" class="section-bubble">
     <h2>Writing</h2>
     <ul>
-      <li><a href="ocean.html">Interactive Ocean Background</a> — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
-      <li><a href="#">Article Title</a> — Short description.</li>
+      <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
+      <li>Article Title — Short description.</li>
     </ul>
   </section>
-
 </main>
-
-<!-- Footer -->
-<footer class="site-footer" style="text-align:center; padding:12px; color:var(--text-dark);">
-  Built with HTML & CSS · Hosted on GitHub
-</footer>
 
 <script type="importmap">
 {
@@ -113,5 +227,6 @@
 </script>
 <script type="module" src="ocean-webgpu.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
