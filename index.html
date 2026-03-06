@@ -1,111 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelle Jessup - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <script type="module" src="ocean-webgpu.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Janelle Jessup | Portfolio</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Fullscreen Ocean Background -->
-  <div id="particle-canvas-container" class="particle-canvas" aria-hidden="true"></div>
+  <!-- Ocean background container -->
+  <div id="particle-canvas-container"></div>
 
-  <!-- Main Content -->
-  <div class="layout">
-    <header class="intro">
-      <h1 class="about-header">Janelle Jessup</h1>
-      <p class="subtitle">Computational Social Scientist | Developer</p>
-      <p class="contact">Phone: (858) 805-1074 | E-Mail: jessup.research@gmail.com</p>
-    </header>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="janelle.jpg" alt="Janelle Jessup" class="profile-pic">
+    <div class="bio">
+      <h1>Janelle Jessup</h1>
+      <p>Computational Social Scientist | Developer</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#about">ABOUT</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills & Interests</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="sidebar-links">
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
+      <a href="mailto:jessup.research@gmail.com">Email</a>
+    </div>
+  </aside>
 
-    <section class="about">
-      <h2 class="section-header white-header">ABOUT</h2>
-      <p>
-        I am a quantitative social scientist, adept at applying advanced statistical and computational methods to analyze complex social data. My expertise spans the full research lifecycle, from designing robust studies and managing project execution to performing sophisticated data analysis and visualization. I am driven by the motivation to transform intricate patterns and societal trends into clear, actionable insights that facilitate informed decision-making and strategic understanding.
-      </p>
+  <!-- Main content -->
+  <main class="content">
+    <section id="about">
+      <h2>ABOUT</h2>
+      <p>I am a quantitative social scientist, adept at applying advanced statistical and computational methods to analyze complex social data. My expertise spans the full research lifecycle, from designing robust studies and managing project execution to performing sophisticated data analysis and visualization. I am driven by the motivation to transform intricate patterns and societal trends into clear, actionable insights that facilitate informed decision-making and strategic understanding.</p>
     </section>
 
-    <section class="skills">
-      <h2 class="section-header pink-header">SKILLS & INTERESTS</h2>
-      <ul>
-        <li><strong>Technical Skills:</strong> Microsoft Suite, Google Applications, SPSS, STATA, Python, R; CITI Certification to conduct human research</li>
-        <li><strong>Language:</strong> Native fluency in English, Advanced proficiency in Spanish</li>
-        <li><strong>Interests:</strong> Statistical analysis, Quantitative methods, Social stratification, Race/Ethnic relations, Demography, Deviance, Social networks</li>
-      </ul>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="job">
+        <h3>San Diego Hunger Coalition | Student Data Analyst</h3>
+        <span>San Diego, CA | Sept 2025 – Present</span>
+        <ul>
+          <li>Translated complex hunger and food insecurity data into visually compelling infographics for policymakers and stakeholders.</li>
+          <li>Designed and implemented equity-centered data framework synthesizing multi-source demographic data to inform policy and targeted interventions.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Davis Research | Assistant Project Manager</h3>
+        <span>Calabasas, CA | May 2023 – June 2024</span>
+        <ul>
+          <li>Coordinated 100+ research studies, ensuring on-time delivery and high client satisfaction.</li>
+          <li>Tested and improved 50+ survey instruments enhancing data quality and reducing dropout rates.</li>
+          <li>Produced statistical reports and actionable insights for clients.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Pepperdine University | Summer Undergraduate Researcher</h3>
+        <span>Malibu, CA | June 2023 – Aug 2023</span>
+        <ul>
+          <li>Assisted in focus group research on loneliness among students with disabilities; developed study materials and gained IRB approval.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Care.com | Professional Caretaker</h3>
+        <span>San Diego, CA | May 2022 – Present</span>
+        <ul>
+          <li>Delivered high-quality care for children aged 1–12, adapting activities to developmental needs.</li>
+          <li>Maintained strong family relationships through clear communication and documentation.</li>
+          <li>Managed scheduling and multi-tasking demands, maintaining 100% positive reviews.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <h3>Pepperdine University | Student Data Analyst</h3>
+        <span>Malibu, CA | Aug 2022 – Dec 2022</span>
+        <ul>
+          <li>Examined religiosity and social deviance via a custom survey distributed campus-wide.</li>
+          <li>Analyzed 300+ responses using SPSS and Excel, delivering presentation with clear visualizations and inferences.</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="education">
-      <h2 class="section-header pink-header">EDUCATION</h2>
-      <ul>
-        <li><strong>University of California San Diego</strong>, M.S. Computational Social Science, San Diego, CA | Expected June 2026</li>
-        <li><strong>Pepperdine University</strong>, B.A. Sociology, Minor in Survey Research, Magna Cum Laude, Malibu, CA | August 2021 – May 2025</li>
-      </ul>
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <h3>University of California San Diego | M.S. Computational Social Science</h3>
+        <span>San Diego, CA | Expected June 2026</span>
+      </div>
+      <div class="edu">
+        <h3>Pepperdine University | B.A. Sociology, Minor in Survey Research, Magna Cum Laude</h3>
+        <span>Malibu, CA | Aug 2021 – May 2025</span>
+      </div>
     </section>
 
-    <section class="experience">
-      <h2 class="section-header pink-header">PROFESSIONAL ANALYTICAL EXPERIENCE</h2>
-      <ul>
-        <li>
-          <strong>San Diego Hunger Coalition</strong>, Student Data Analyst | San Diego, CA | Sep 2025 – Present
-          <ul>
-            <li>Translated complex hunger and food insecurity data into visually compelling infographics for policymakers and nonprofit stakeholders.</li>
-            <li>Designed an equity-centered data framework synthesizing multi-source demographic data to inform policy recommendations and targeted interventions.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Davis Research</strong>, Assistant Project Manager | Calabasas, CA | May 2023 – June 2024
-          <ul>
-            <li>Coordinated 100+ social, political, and market research studies ensuring on-time delivery and client satisfaction.</li>
-            <li>Tested and improved 50+ survey instruments, enhancing data quality and reducing respondent error.</li>
-            <li>Produced statistical reports and actionable insights, collaborating with cross-functional teams to maintain data integrity.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Pepperdine University</strong>, Summer Undergraduate Researcher | Malibu, CA | June 2023 – Aug 2023
-          <ul>
-            <li>Assisted Dr. Khanh Van Bui, PhD., with focus group research on loneliness among students with disabilities, including IRB approval and study materials.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Care.com</strong>, Professional Caretaker | San Diego, CA | May 2022 – Present
-          <ul>
-            <li>Provided high-quality care for children ages 1–12, adapting activities to developmental needs.</li>
-            <li>Maintained excellent relationships with families and 100% positive reviews by applying structured routines and evidence-based caregiving practices.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Pepperdine University</strong>, Student Data Analyst | Malibu, CA | Aug 2022 – Dec 2022
-          <ul>
-            <li>Examined the relationship between religiosity and social deviance by constructing surveys and analyzing 300+ responses using SPSS and Excel.</li>
-            <li>Delivered presentations with analysis, visualizations, and clear inferences.</li>
-          </ul>
-        </li>
-      </ul>
+    <section id="skills">
+      <h2>Skills & Interests</h2>
+      <p><strong>Technical Skills:</strong> Microsoft Suite, Google Applications, SPSS, STATA, Python, R; CITI Certification</p>
+      <p><strong>Language:</strong> Native English, Advanced Spanish</p>
+      <p><strong>Interests:</strong> Statistical analysis, Quantitative methods, Social stratification, Race/Ethnic relations, Demography, Deviance, Social networks</p>
     </section>
 
-    <section class="projects">
-      <h2 class="section-header pink-header">SELECTED PROJECTS</h2>
-      <ul>
-        <li>
-          <strong>Statistical Computing and Inference from Data</strong>, Student | San Diego, CA | Aug 2025 – Dec 2025
-          <ul>
-            <li>Replicated a published quantitative study, cleaning and analyzing large-scale survey data with regression modeling and visualization.</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Public Opinion & Voting Thesis</strong>, Student | Malibu, CA | Jan 2024 – Apr 2024
-          <ul>
-            <li>Analyzed the effect of religiosity on social satisfaction using statistical methods in STATA and aggregate data from University of Michigan.</li>
-          </ul>
-        </li>
-      </ul>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Statistical Computing and Inference from Data | Student</h3>
+        <span>San Diego, CA | Aug 2025 – Dec 2025</span>
+        <ul>
+          <li>Replicated published quantitative study; cleaned and analyzed large-scale survey data with regression modeling and visualization.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3>Public Opinion & Voting Thesis | Student</h3>
+        <span>Malibu, CA | Jan 2024 – Apr 2024</span>
+        <ul>
+          <li>Determined effect of religiosity on social satisfaction measures using statistical analysis in STATA.</li>
+          <li>Analyzed University of Michigan aggregate data with regressions, interaction effects, and mean comparisons.</li>
+        </ul>
+      </div>
     </section>
 
-    <section class="contact">
-      <h2 class="section-header pink-header">CONTACT</h2>
-      <p>Email: jessup.research@gmail.com | Phone: (858) 805-1074</p>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Phone: (858) 805-1074</p>
+      <p>Email: <a href="mailto:jessup.research@gmail.com">jessup.research@gmail.com</a></p>
     </section>
-  </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="ocean-webgpu.js"></script>
 </body>
 </html>
