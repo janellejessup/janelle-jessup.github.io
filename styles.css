@@ -19,16 +19,20 @@ html, body {
   color: var(--sidebar-text);
 }
 
-/* Ensure ocean canvas behind all content */
+/* Ocean canvas */
+
 #particle-canvas-container {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
   background: #001e0f;
 }
 
 /* Sidebar */
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -44,22 +48,38 @@ html, body {
 }
 
 .sidebar .avatar {
-  width: 120px; height: 120px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 12px;
 }
 
-.sidebar .name, .sidebar .bio { 
-  text-align: center; 
-  color: var(--sidebar-text); 
+.sidebar .name,
+.sidebar .bio {
+  text-align: center;
+  color: var(--sidebar-text);
 }
 
-.sidebar .name { font-weight: 600; font-size: 18px; }
-.sidebar .bio { font-weight: 500; font-size: 14px; margin-bottom: 20px; }
+.sidebar .name {
+  font-weight: 600;
+  font-size: 18px;
+}
 
-.sidebar-nav ul { list-style: none; width: 100%; }
-.sidebar-nav li { margin: 8px 0; }
+.sidebar .bio {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  width: 100%;
+}
+
+.sidebar-nav li {
+  margin: 8px 0;
+}
 
 .sidebar-nav a {
   display: block;
@@ -73,10 +93,10 @@ html, body {
 
 .sidebar-nav a:hover {
   background: var(--sidebar-hover);
-  text-decoration: none;
 }
 
 /* Buttons */
+
 .btn-row {
   display: flex;
   flex-direction: column;
@@ -99,12 +119,11 @@ html, body {
   background: var(--sidebar-hover);
 }
 
-/* Bottom icon bubbles */
+/* Sidebar bottom icons */
 
 .sidebar-bottom {
   margin-top: auto;
   display: flex;
-  justify-content: center;
   gap: 12px;
   padding-top: 20px;
 }
@@ -138,11 +157,15 @@ html, body {
   flex-direction: column;
   align-items: center;
   padding: 0 20px 80px 20px;
+  position: relative;
+  z-index: 5;
 }
 
 /* Top spacer */
 
-.top-spacer { height: 66vh; }
+.top-spacer {
+  height: 66vh;
+}
 
 /* Sections */
 
@@ -158,28 +181,28 @@ html, body {
   -webkit-backdrop-filter: blur(4px);
 }
 
-/* About bubble */
+/* About bubble (white + dark text) */
 
 .about-bubble {
-  background: #520B33;
-  color: white;
+  background: white;
+  color: #520B33;
 }
 
 .about-bubble h2 {
-  color: white;
+  color: #520B33;
 }
 
 .about-bubble p {
-  color: white;
+  color: #520B33;
 }
 
-/* Ascending pink gradient bubbles starting with FCE9F4 */
+/* Ascending gradient pink bubbles starting with FCE9F4 */
 
 .bubble-pink1 { background: #FCE9F4; }
-.bubble-pink2 { background: #F9D8EA; }
-.bubble-pink3 { background: #F6C7E0; }
-.bubble-pink4 { background: #F3B6D6; }
-.bubble-pink5 { background: #F0A5CC; }
+.bubble-pink2 { background: #F7D5EA; }
+.bubble-pink3 { background: #F2C1E0; }
+.bubble-pink4 { background: #ECAAD5; }
+.bubble-pink5 { background: #E692CA; }
 
 /* Section headings */
 
@@ -189,7 +212,7 @@ html, body {
   color: var(--sidebar-text);
 }
 
-/* ---------- PROJECT CARDS ---------- */
+/* PROJECT CARDS */
 
 .small {
   font-size: 14px;
@@ -307,4 +330,5 @@ html, body {
   .two-col {
     grid-template-columns: 1fr;
   }
+
 }
