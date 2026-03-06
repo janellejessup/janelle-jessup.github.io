@@ -58,22 +58,33 @@ a:hover { text-decoration: underline; }
 /* Layout */
 .layout { display: flex; max-width: 1200px; margin: auto; position: relative; z-index: 1; }
 
-/* Sidebar */
+/* SIDEBAR */
 .sidebar {
   width: 300px;
   padding: 40px 25px;
   position: fixed;
   top: 0;
   height: 100vh;
-  background: var(--sidebar-bg);
+  background: #F7CBE1; /* updated soft pink */
   color: var(--sidebar-text);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* vertically center */
-  text-align: center;       /* horizontally center */
   z-index: 2;
+  box-sizing: border-box;
   border-right: 1px solid rgba(255,240,243,0.2);
+}
+
+/* Sidebar links hover */
+.sidebar-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 8px 0;
+  transition: all 0.2s ease;
+}
+.sidebar-nav a:hover {
+  color: var(--accent2);
+  transform: translateX(4px);
 }
 
 /* Avatar */
