@@ -1,15 +1,14 @@
-/* General body styles */
-body {
+/* Reset & base */
+body, html {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: #0b0f14;
-  color: white;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  color: #333;
+  height: 100%;
+  overflow-x: hidden;
 }
 
-/* Fullscreen ocean/particle canvas */
-#particle-canvas-container,
-#particle-canvas-container canvas {
+#particle-canvas-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,53 +17,147 @@ body {
   z-index: -1;
 }
 
-/* Layout wrapper */
-.layout {
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100%;
+  background-color: #EDB7CB;
+  color: #69072B;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: auto;
+  align-items: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.bio h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.bio p {
+  margin: 0.3rem 0 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+/* Sidebar navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: auto;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: #69072B;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.sidebar-nav a:hover {
+  color: #FFB6C1;
+}
+
+/* Sidebar bottom links */
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.sidebar-links a {
+  text-decoration: none;
+  color: #69072B;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sidebar-links a:hover {
+  color: #FFB6C1;
+}
+
+/* Content */
+.content {
+  margin-left: 260px;
   padding: 2rem;
-  position: relative;
-  z-index: 1;
-  width: 100%; /* prevent side scrolling */
+  max-width: 900px;
 }
 
 /* Section headers */
-#about-header {
-  color: white; /* ABOUT stays white */
+.content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-h2 {
-  color: #C71585; /* Dark pink for all other section headers */
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+#about h2 {
+  color: #FFFFFF;
 }
 
-/* Section content text */
-p, li, span, a {
-  color: white; /* normal text white */
-  line-height: 1.6;
+#experience h2,
+#education h2,
+#skills h2,
+#projects h2,
+#contact h2 {
+  color: #69072B;
 }
 
-/* Links hover */
+/* Jobs and projects */
+.job, .edu, .project {
+  margin-bottom: 1.5rem;
+}
+
+.job h3, .edu h3, .project h3 {
+  margin: 0;
+}
+
+.job span, .edu span, .project span {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+ul {
+  margin-top: 0.5rem;
+  margin-left: 1.2rem;
+}
+
+/* Links */
+a {
+  color: #69072B;
+}
+
 a:hover {
-  color: #ff4d4d;
-  text-decoration: underline;
+  color: #FFB6C1;
 }
 
-/* Optional: adjust spacing for header */
-header h1 {
-  font-size: 2.2rem;
-}
-
-header p {
-  font-size: 1.1rem;
-  margin-top: 0.3rem;
-}
-
-/* Debug panel headers (if using ocean debug) */
-#ocean-debug-panel h2 {
-  color: #C71585;
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 1rem;
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .content {
+    margin-left: 0;
+    padding: 1rem;
+  }
 }
