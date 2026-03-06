@@ -1,115 +1,65 @@
-:root {
-  --sidebar-bg: #F7CBE1;
-  --sidebar-text: #5E0931;
-  --sidebar-hover: #F4A6B9;
-  --bubble-width: 66%;
-  --about-bg: #5E0931;
-  --bubble-spacing: 60px;
-  --font-sans: 'DM Sans', system-ui, sans-serif;
+/* General body styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0b0f14;
+  color: white;
+  overflow-x: hidden;
 }
 
-/* Reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--font-sans); background: transparent; color: var(--sidebar-text); }
-
-/* Ensure ocean canvas behind all content */
-#particle-canvas-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  z-index: -1;
-}
-
-/* Sidebar */
-.sidebar {
+/* Fullscreen ocean/particle canvas */
+#particle-canvas-container,
+#particle-canvas-container canvas {
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 100vw;
   height: 100vh;
-  background: var(--sidebar-bg);
+  z-index: -1;
+}
+
+/* Layout wrapper */
+.layout {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  z-index: 10;
-}
-.sidebar .avatar {
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 12px;
-}
-.sidebar .name, .sidebar .bio { text-align: center; color: var(--sidebar-text); }
-.sidebar .name { font-weight: 600; font-size: 18px; }
-.sidebar .bio { font-weight: 500; font-size: 14px; margin-bottom: 20px; }
-
-.sidebar-nav ul { list-style: none; width: 100%; }
-.sidebar-nav li { margin: 8px 0; }
-.sidebar-nav a {
-  display: block;
-  padding: 6px 12px;
-  border-radius: 8px;
-  color: var(--sidebar-text);
-  transition: 0.2s;
-}
-.sidebar-nav a:hover { background: var(--sidebar-hover); }
-
-/* Bottom pinned links */
-.sidebar-bottom {
-  margin-top: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-align: center;
-}
-.sidebar-bottom a { color: var(--sidebar-text); font-weight: 500; }
-.sidebar-bottom a:hover { text-decoration: underline; }
-
-/* Main content */
-.content {
-  margin-left: 300px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 20px 80px 20px;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* Top spacer for ocean view */
-.top-spacer { height: 66vh; }
-
-/* Bubble sections */
-.section {
-  width: var(--bubble-width);
-  padding: 24px 28px;
-  border-radius: 18px;
-  margin-bottom: var(--bubble-spacing);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  text-align: left;
+/* Section headers (experience, education, skills, etc.) */
+h1, h2, h3, .section-title {
+  color: #8B0000; /* Dark red */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-/* About dark red bubble */
-.about-bubble { background: var(--about-bg); color: white; }
-
-/* Ascending pink gradient bubbles */
-.bubble-pink1 { background: #FFD6E8; color: var(--sidebar-text); }
-.bubble-pink2 { background: #FFCCE0; color: var(--sidebar-text); }
-.bubble-pink3 { background: #FFC2D8; color: var(--sidebar-text); }
-.bubble-pink4 { background: #FFB8D0; color: var(--sidebar-text); }
-.bubble-pink5 { background: #FFADCA; color: var(--sidebar-text); }
-
-/* Section headings dark red */
-.section h2 { 
-  margin-bottom: 12px;
-  font-size: 22px;
-  color: var(--sidebar-text);
+/* Section content text */
+p, li, span, a {
+  color: white; /* Keep normal text white */
+  line-height: 1.6;
 }
 
-/* Responsive adjustments */
-@media (max-width: 920px) {
-  .sidebar { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: space-around; border-bottom: 1px solid rgba(0,0,0,0.1); }
-  .sidebar .avatar, .sidebar .name, .sidebar .bio { display: none; }
-  .content { margin-left: 0; width: 100%; }
-  .section { width: 90%; }
+/* Links hover */
+a:hover {
+  color: #ff4d4d;
+  text-decoration: underline;
+}
+
+/* Optional: adjust spacing for header */
+header h1 {
+  font-size: 2.2rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+}
+
+/* Debug panel headers (if using ocean debug) */
+#ocean-debug-panel h2 {
+  color: #8B0000;
 }
