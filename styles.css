@@ -25,7 +25,7 @@ html, body {
   top: 0; left: 0;
   width: 100vw; height: 100vh;
   z-index: -1;
-  background: #001e0f; /* fallback if WebGPU fails */
+  background: #001e0f;
 }
 
 /* Sidebar */
@@ -59,6 +59,7 @@ html, body {
 
 .sidebar-nav ul { list-style: none; width: 100%; }
 .sidebar-nav li { margin: 8px 0; }
+
 .sidebar-nav a {
   display: block;
   padding: 8px 14px;
@@ -68,25 +69,34 @@ html, body {
   font-size: 16px;
   transition: 0.2s;
 }
+
 .sidebar-nav a:hover {
   background: var(--sidebar-hover);
   text-decoration: none;
 }
 
-/* Bottom pinned links */
-.sidebar-bottom {
-  margin-top: auto;
+/* Buttons */
+.btn-row {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  text-align: center;
+  gap: 8px;
+  margin-top: 20px;
 }
-.sidebar-bottom a { 
-  color: var(--sidebar-text); 
-  font-weight: 500; 
+
+.btn {
+  background: white;
+  color: var(--sidebar-text);
+  padding: 8px 14px;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  transition: 0.2s;
 }
-.sidebar-bottom a:hover { text-decoration: underline; }
+
+.btn:hover {
+  background: var(--sidebar-hover);
+}
 
 /* Main content */
 .content {
@@ -98,10 +108,10 @@ html, body {
   padding: 0 20px 80px 20px;
 }
 
-/* Top spacer for ocean view */
+/* Top spacer */
 .top-spacer { height: 66vh; }
 
-/* Bubble sections */
+/* Sections */
 .section {
   width: var(--bubble-width);
   max-width: 100%;
@@ -110,47 +120,153 @@ html, body {
   margin-bottom: var(--bubble-spacing);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   text-align: left;
-  background: rgba(255, 255, 255, 0.05); /* light transparent overlay for non-about bubbles */
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
 }
 
-/* About bubble: transparent to show ocean, text white, subtle blur & shadow for readability */
-.about-bubble { 
-  background: transparent; /* ocean shows through */
-  color: white; 
+/* About bubble */
+.about-bubble {
+  background: transparent;
+  color: white;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
+
+.about-bubble h2 {
+  color: white;
+}
+
 .about-bubble p {
+  color: white;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
-/* Ascending pink gradient bubbles (optional overlay for readability) */
-.bubble-pink1 { background: rgba(255, 214, 232, 0.6); color: var(--sidebar-text); }
-.bubble-pink2 { background: rgba(255, 204, 224, 0.6); color: var(--sidebar-text); }
-.bubble-pink3 { background: rgba(255, 194, 216, 0.6); color: var(--sidebar-text); }
-.bubble-pink4 { background: rgba(255, 184, 208, 0.6); color: var(--sidebar-text); }
-.bubble-pink5 { background: rgba(255, 173, 202, 0.6); color: var(--sidebar-text); }
+/* Ascending pink gradient bubbles */
+.bubble-pink1 { background: rgba(255, 214, 232, 0.7); }
+.bubble-pink2 { background: rgba(255, 204, 224, 0.7); }
+.bubble-pink3 { background: rgba(255, 194, 216, 0.7); }
+.bubble-pink4 { background: rgba(255, 184, 208, 0.7); }
+.bubble-pink5 { background: rgba(255, 173, 202, 0.7); }
 
-/* Section headings dark red */
-.section h2 { 
+/* Section headings */
+.section h2 {
   margin-bottom: 12px;
   font-size: 22px;
   color: var(--sidebar-text);
 }
 
-/* Responsive adjustments */
+/* ---------- PROJECT CARDS ---------- */
+
+.small {
+  font-size: 14px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 24px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: var(--sidebar-text);
+}
+
+/* Two column layout */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.two-col h4 {
+  margin-top: 8px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--sidebar-text);
+}
+
+.two-col p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Skills pills */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+.pill {
+  background: #F7CBE1;
+  color: var(--sidebar-text);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Resource links */
+.resources {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-inline {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-inline:hover {
+  background: var(--sidebar-hover);
+}
+
+/* Responsive */
 @media (max-width: 920px) {
-  .sidebar { 
-    position: relative; 
-    width: 100%; 
-    height: auto; 
-    flex-direction: row; 
-    justify-content: space-around; 
-    border-bottom: 1px solid rgba(0,0,0,0.1); 
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
   }
-  .sidebar .avatar, .sidebar .name, .sidebar .bio { display: none; }
-  .content { margin-left: 0; width: 100%; max-width: 100%; }
-  .section { width: 90%; }
+
+  .sidebar .avatar,
+  .sidebar .name,
+  .sidebar .bio {
+    display: none;
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section {
+    width: 90%;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+  }
 }
