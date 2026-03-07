@@ -1,154 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Janelle Jessup - Computational Social Science</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janelle Jessup</title>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-
-  <!-- Ocean background -->
-  <div id="particle-canvas-container"></div>
-
-  <!-- Sidebar -->
   <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar placeholder"></div>
+      <div class="name">Janelle Jessup</div>
 
-    <img src="janelle.jpg" alt="Janelle Jessup" class="avatar">
-
-    <div class="name">Janelle Jessup</div>
-    <div class="bio">MS Computational Social Science, UCSD</div>
-
-    <nav class="sidebar-nav">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#code">Code</a></li>
-        <li><a href="#writing">Writing</a></li>
-      </ul>
-    </nav>
-
-    <div class="sidebar-bottom">
-
-      <a href="https://www.linkedin.com/in/janelle-jessup653" target="_blank" class="icon-bubble">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-
-      <a href="https://github.com/janellejessup" target="_blank" class="icon-bubble">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <a href="mailto:jessup.research@gmail.com" class="icon-bubble">
-        <i class="fas fa-envelope"></i>
-      </a>
-
+      <div class="btn-row">
+        <a class="btn" href="#resume">Resume</a>
+        <a class="btn" href="https://github.com/janelle-jessup/" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/janellejessup653" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:jessup.research@gmail.com">Email</a>
+      </div>
     </div>
 
+    <nav class="nav">
+      <a class="nav-link" href="#home">HOME</a>
+      <a class="nav-link" href="#about">ABOUT</a>
+      <a class="nav-link" href="#resume">RESUME</a>
+      <a class="nav-link" href="#skills">SKILLS</a>
+      <a class="nav-link" href="#experience">PROFESSIONAL EXPERIENCE</a>
+      <a class="nav-link" href="#projects">RESEARCH PROJECTS</a>
+      <a class="nav-link" href="#writing">WRITING</a>
+      <a class="nav-link" href="#personal">PERSONAL</a>
+      <a class="nav-link" href="#contact">CONTACT</a>
+    </nav>
   </aside>
 
-  <!-- Main content -->
   <main class="content">
 
-    <div class="top-spacer"></div>
-
-    <!-- About -->
-    <section id="about" class="section about-bubble">
-      <h2>About</h2>
-
-      <p>
-        I am a computational social scientist focused on integrating social theory with quantitative and computational methodologies to analyze complex social systems. My work emphasizes rigorous statistical modeling, careful research design, and clear analytical processes. I am particularly interested in how computational methods can illuminate patterns of inequality, social behavior, and institutional dynamics.
-      </p>
-
+    <!-- HOME -->
+    <section id="home" class="section">
+      <h1>Janelle Jessup</h1>
     </section>
 
-    <!-- Resume -->
-    <section id="resume" class="section bubble-pink1">
-      <h2>Resume</h2>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h1>About</h1>
 
+      <p>
+        I am a data analyst with a background in Computational Social Science, specializing in statistical analysis, data visualization, and the interpretation of complex datasets. My work focuses on turning data into clear insights that support strategic decision-making.
+      </p>
+
+      <p>
+        With a foundation in sociology and survey research, I bring a strong interest in research design and methodology, including both quantitative and qualitative approaches to data collection and analysis. This perspective helps me frame analytical questions thoughtfully and interpret data within broader social and organizational contexts.
+      </p>
+        
+      <p>
+        From designing research and managing analytical workflows to performing statistical analysis and communicating results to diverse stakeholders, I bring experience across the full project lifecycle. By combining technical expertise with strong project coordination and communication skills, I aim to ensure that data-driven work is both rigorous and practical.
+      </p>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="section">
+      <h1>Resume</h1>
       <iframe
         src="https://docs.google.com/document/d/1oeroevYFiK34qNJ2PJse2TVvE1Cf33tEB7YEWRZRtFw/preview"
         width="100%"
         height="650"
-        style="border:none;"
+        style="border: none;"
         title="Resume Preview">
       </iframe>
-
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section bubble-pink2">
-      <h2>Skills</h2>
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h1>Skills & Tools</h1>
 
-      <ul>
-        <li>Python, R, STATA, SPSS</li>
-        <li>Social Network Analysis & Quantitative Methods</li>
-        <li>Data Visualization & Statistical Modeling</li>
-      </ul>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-title">Data Analysis & Statistical Methods</div>
+          <ul>
+            <li>Statistical modeling and regression</li>
+            <li>Survey and demographic data analysis</li>
+            <li>Data cleaning and preparation</li>
+            <li>Quantitative hypothesis testing</li>
+            <li>Python, R, SPSS, STATA</li>
+          </ul>
+        </div>
 
+        <div class="skill-card">
+          <div class="skill-title">Research Design & Methodology</div>
+          <ul>
+            <li>Survey design and testing</li>
+            <li>Quantitative and qualitative methods</li>
+            <li>Focus groups and qualitative research</li>
+            <li>Research design and implementation</li>
+            <li>IRB and ethical research</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Project Management & Operations</div>
+          <ul>
+            <li>End-to-end research project coordination</li>
+            <li>Workflow and timeline management</li>
+            <li>Cross-functional team collaboration</li>
+            <li>Data documentation and organization</li>
+            <li>Stakeholder-focused project delivery</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-title">Data Visualization & Communication</div>
+          <ul>
+            <li>Data visualization and dashboards</li>
+            <li>Infographics and visual storytelling</li>
+            <li>Statistical results interpretation</li>
+            <li>Research reporting and presentations</li>
+            <li>Communicating insights to stakeholders</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience" class="section bubble-pink3">
-      <h2>Experience</h2>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <h1>Professional Experience</h1>
 
-      <ul>
-        <li><strong>Student Data Analyst — San Diego Hunger Coalition</strong> — Designed equity-centered analytical frameworks integrating multi-source demographic and food insecurity data. Sept 2025 – Present</li>
+      <div class="card">
+        <div class="card-title">Data Analyst — San Diego Hunger Coalition</div>
+        <div class="card-tagline">
+          Translated complex food insecurity data into visual insights used by policymakers and nonprofit stakeholders.
+        </div>
+        <div class="two-col">
+          <div>
+            <h4>Role</h4>
+            <p>
+              Analyzed regional hunger and food insecurity trends to support policy recommendations
+              and resource allocation decisions for nonprofit and government stakeholders.
+            </p>
+            <h4>Data</h4>
+            <p>
+              Multi-source demographic and food insecurity datasets including census indicators,
+              program participation data, and regional socioeconomic statistics.
+            </p>
+          </div>
+          <div>
+            <h4>Methods</h4>
+            <p>
+              Built an equity-centered data framework, synthesized demographic indicators,
+              and produced visualizations and infographics designed for policy audiences.
+            </p>
+            <h4>Impact</h4>
+            <p>
+              Produced accessible analytical visuals that helped policymakers and nonprofit
+              partners better understand regional hunger trends and guide program funding priorities.
+            </p>
+          </div>
+        </div>
+        <h3>Skills</h3>
+        <div class="meta">
+          <span class="pill">Data Visualization</span>
+          <span class="pill">Policy Analysis</span>
+          <span class="pill">Demographic Data</span>
+          <span class="pill">Research Synthesis</span>
+        </div>
+      </div>
 
-        <li><strong>Assistant Project Manager — Davis Research</strong> — Directed over 100 research studies and improved survey design. May 2023 – June 2024</li>
+      <div class="card">
+        <div class="card-title">Assistant Project Manager — Davis Research</div>
+        <div class="card-tagline">
+          Coordinated large-scale survey research projects for social, political, and market research clients.
+        </div>
+        <div class="two-col">
+          <div>
+            <h4>Role</h4>
+            <p>
+              Managed the execution of more than 100 research studies involving thousands of survey
+              respondents across political, social, and consumer research projects.
+            </p>
+            <h4>Data</h4>
+            <p>
+              Large-scale survey datasets including public opinion, market research, and social
+              research responses collected across multiple panels and client studies.
+            </p>
+          </div>
+          <div>
+            <h4>Methods</h4>
+            <p>
+              Tested and optimized survey instruments including logic, quotas, randomization,
+              and response flow to improve data quality and reduce respondent error.
+            </p>
+            <h4>Impact</h4>
+            <p>
+              Delivered statistical summaries and analytical reports that informed client
+              decision-making while maintaining high data integrity and on-time project delivery.
+            </p>
+          </div>
+        </div>
+        <h3>Skills</h3>
+        <div class="meta">
+          <span class="pill">Survey Methodology</span>
+          <span class="pill">Project Management</span>
+          <span class="pill">Data Quality Testing</span>
+          <span class="pill">Statistical Reporting</span>
+        </div>
+      </div>
 
-        <li><strong>Summer Undergraduate Researcher — Pepperdine University</strong> — Supported qualitative research on student loneliness and secured IRB approval. June 2023 – Aug 2023</li>
-      </ul>
+      <div class="card">
+        <div class="card-title">Summer Undergraduate Researcher — Pepperdine University</div>
+        <div class="card-tagline">
+          Assisted Dr. Khanh Van Bui, PhD. with focus group research on the impacts of loneliness among students with disabilities.
+        </div>
+        <div class="two-col">
+          <div>
+            <h4>Role</h4>
+            <p>
+              Developed all study materials, ensured IRB approval, led recruitment, and continued study of qualitative research methods.
+            </p>
+            <h4>Impact</h4>
+            <p>
+              Strengthened understanding of the experience of loneliness among students with disabilities, allowing for data-driven policy decisions to be made.
+            </p>
+          </div>
+        </div>
+        <h3>Skills</h3>
+        <div class="meta">
+          <span class="pill">Qualitative Research</span>
+          <span class="pill">Focus Groups</span>
+          <span class="pill">Human Subjects Research</span>
+          <span class="pill">Sensitive Subjects</span>
+        </div>
+      </div>
 
+      <div class="card">
+        <div class="card-title">Professional Caretaker — Care.com</div>
+        <div class="card-tagline">
+          Delivered consistent, high-quality care for multiple children (ages 1–12) and pets (dogs and cats), adapting plans and activities to each child’s developmental needs and behavioral patterns.
+        </div>
+        <div class="two-col">
+          <div>
+            <h4>Role</h4>
+            <p>
+              Serving as a primary caregiver, I applied structured routines and evidence-based caregiving practices, built strong relationships with families through clear communication, meticulously documented daily activities, schedules, and progress, highlighting an ability to follow protocols, be dependable, and develop repeatable processes.
+            </p>
+            <h4>Impact</h4>
+            <p>
+              Managed scheduling, logistics, and multi-tasking demands in dynamic environments, consistently maintaining 100% positive reviews from families reflecting trustworthiness, accountability, and the ability to work across diverse populations.
+            </p>
+          </div>
+        </div>
+        <h3>Skills</h3>
+        <div class="meta">
+          <span class="pill">Communication</span>
+          <span class="pill">Responsibility</span>
+          <span class="pill">Leadership</span>
+          <span class="pill">Attention to detail</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="section bubble-pink4">
-      <h2>Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h1>Projects</h1>
+      <p class="small">
+        Selected course and research projects focused on computational methods to social science research.
+      </p>
 
-      <ul>
-        <li>Statistical Computing and Inference from Data — Replicated a published quantitative study by cleaning and analyzing survey data with regression modeling and visualization.</li>
-
-        <li>San Diego Hunger Coalition Impact Report — Contributed to the annual regional nutrition insecurity report used by nonprofit leaders and policymakers.</li>
-
-        <li>Public Opinion & Voting Thesis — Analyzed University of Michigan data in STATA to evaluate how religiosity relates to social satisfaction using regression and interaction analysis.</li>
-      </ul>
-
+    <!-- WRITING -->
+    <section id="writing" class="section">
+      <h1>Writing</h1>
+      <p class="small">
+        Selected writing samples focused on sociological theory.
+      </p>
+      
+      <div class="card">
+        <div class="card-title">Social Mobility</div>
+        <div class="card-tagline">
+          Theorizing methods of social mobility through the lens of network analysis.
+        </div>
+        <h3>Resource Links</h3>
+        <div class="resources">
+          <a class="btn btn-inline" href="#" target="_blank" rel="noopener">PDF</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Code -->
-    <section id="code" class="section bubble-pink5">
-      <h2>Code</h2>
+    <!-- PERSONAL -->
+    <section id="personal" class="section">
+      <h1>Four-Legged Friends</h1>
+      <p class="small">
+        I am a total pet lover and have had the privilege of caring for many animals! Here are a few:
+      </p>
+      <img src="pets.jpg" alt="My pets" class="personal-img">
 
-      <ul>
-        <li>Repository Name — Short description.</li>
-        <li>Repository Name — Short description.</li>
-      </ul>
-
+      <h1>Painting</h1>
+      <p class="small">
+        I am an avid artist in my free time. Here are a few of my paintings:
+      </p>
+      <img src="paintings.jpg" alt="My paintings" class="personal-img">
     </section>
 
-    <!-- Writing -->
-    <section id="writing" class="section bubble-pink5">
-      <h2>Writing</h2>
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h1>Contact</h1>
+      <div class="card">
+        <ul class="contact-list">
+          <li><strong>Email:</strong> <a href="mailto:jessup.research@gmail.com">jessup.research@gmail.com</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/janellejessup653" target="_blank" rel="noopener">linkedin.com/in/janellejessup653</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/janelle-jessup/" target="_blank" rel="noopener">github.com/janelle-jessup</a></li>
+        </ul>
+      </div>
 
-      <ul>
-        <li>Interactive Ocean Background — Technical explanation of the math and rendering behind the animated ocean visualization.</li>
-        <li>Article Title — Short description.</li>
-      </ul>
-
+      <footer class="footer">
+        <span class="small muted">© <span id="year"></span> Janelle Jessup • Built with GitHub Pages</span>
+      </footer>
     </section>
 
   </main>
 
-  <script type="module" src="ocean-webgpu.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
