@@ -1,41 +1,199 @@
-/* Professional Experience Card Titles & Taglines */
-#experience .card-title,
-#experience .card-tagline {
-  background: rgba(26,26,26,0.9); /* dark background */
-  color: #ff4d4d; /* red text */
-  padding: 6px 10px;
-  border-radius: 8px;
-  display: block;
-  font-weight: 700;
-  font-size: 18px;
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  color: #222;
+}
+
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #f7f0f5;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar-top {
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
   margin-bottom: 10px;
 }
 
-/* The rest of the card remains pink */
-#experience .card {
-  background: rgba(255,209,238,0.2); /* soft pink */
-  padding: 20px;
-  border-radius: 10px;
+.name {
+  font-size: 1.2rem;
+  font-weight: 700;
   margin-bottom: 20px;
-  text-align: left;
 }
 
-/* Left justify Skills label above pills */
-#experience .card h3 {
-  text-align: left;
-  margin-top: 15px;
-  margin-bottom: 5px;
+/* Sidebar navigation */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-/* Two-column layout for Role / Impact (for all cards) */
-#experience .two-col {
+.nav-link {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #d14de3;
+}
+
+/* Sidebar buttons */
+.btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: #d14de3;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #b13aba;
+}
+
+/* Main content */
+.content {
+  margin-left: 240px;
+  padding: 20px;
+}
+
+/* Skills Section */
+.skills-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+}
+
+.skill-card {
+  background-color: #f7f0f5;
+  padding: 15px;
+  border-radius: 8px;
+  width: 220px;
+  text-align: left;
+}
+
+.skill-title {
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
-#experience .two-col > div {
-  flex: 1;
-  min-width: 250px;
+/* Professional Experience */
+.card {
+  background-color: rgba(255,209,238,0.2);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card-tagline {
+  background: rgba(255,209,238,0.2);
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.two-col {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.two-col > div {
+  flex: 1 1 300px;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pill {
+  background-color: #d14de3;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Writing & Projects & Personal */
+.resources {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.personal-img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Contact Section */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.contact-list li {
+  margin-bottom: 8px;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+
+  .two-col {
+    flex-direction: column;
+  }
+
+  .skills-grid {
+    justify-content: flex-start;
+  }
 }
