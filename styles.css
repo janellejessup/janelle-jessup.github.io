@@ -52,12 +52,14 @@ a:hover { text-decoration: underline; }
 
 .name { font-weight:600; font-size:16px; text-align:center; }
 
+/* push buttons to bottom */
 .btn-row { 
   display:grid; 
   grid-template-columns:1fr 1fr; 
   gap:10px; 
   margin-top:auto;
 }
+
 .btn { padding:10px; border-radius:999px; background: rgba(255,255,255,0.1); color: var(--sidebar-text); font-weight:500; font-size:12px; border:1px solid rgba(255,255,255,0.18); text-align:center; transition:0.15s; }
 .btn:hover { background: rgba(255,255,255,0.16); transform:translateY(-2px); }
 
@@ -66,7 +68,7 @@ a:hover { text-decoration: underline; }
 .nav-link:hover { background: rgba(255,255,255,0.08); color: var(--sidebar-text); }
 .nav-link.active { background: rgba(255,255,255,0.12); color: var(--sidebar-text); border:1px solid rgba(255,255,255,0.18); }
 
-/* remove contact link from sidebar */
+/* remove contact link */
 .nav-link[href="#contact"] { display:none; }
 
 .content { margin-left:280px; padding:36px 42px; max-width:1100px; }
@@ -78,31 +80,39 @@ a:hover { text-decoration: underline; }
   border-radius: var(--radius);
 }
 
-/* extra large gap before about section */
+/* large gap before about */
 #about { margin-top: 50vh; }
 
 #about { background: var(--darkest); color: var(--soft-white); }
 #resume { background: var(--dark); color: var(--soft-white); }
-
-/* removed pink background */
 #skills { background: transparent; color: var(--darkest); }
 
-#experience { background: var(--light); color: var(--darkest); }
-#projects { background: var(--mid); color: var(--soft-white); }
-#writing { background: var(--light); color: var(--darkest); }
-#personal { background: var(--mid); color: var(--soft-white); }
-#contact { background: var(--dark); color: var(--soft-white); }
+/* remove colored backgrounds between sections */
+#experience,
+#projects,
+#writing,
+#personal,
+#contact {
+  background: transparent;
+}
 
-/* make all section titles same color as writing */
+h1 { font-size:42px; margin:0 0 12px; font-weight:700; text-align:center; }
+h3 { font-size:20px; margin:0 0 8px; font-weight:600; text-align:center; }
+h4 { font-size:13px; margin:14px 0 6px; font-weight:700; text-transform:uppercase; letter-spacing:0.02em; text-align:center; }
+
+/* default section title color */
 .section h1,
 .section h3,
 .section h4 {
   color: var(--darkest);
 }
 
-h1 { font-size:42px; margin:0 0 12px; font-weight:700; text-align:center; }
-h3 { font-size:20px; margin:0 0 8px; font-weight:600; text-align:center; }
-h4 { font-size:13px; margin:14px 0 6px; font-weight:700; text-transform:uppercase; letter-spacing:0.02em; text-align:center; }
+/* about title white */
+#about h1,
+#about h3,
+#about h4 {
+  color: var(--soft-white);
+}
 
 p { font-size:14px; line-height:1.6; }
 .small { font-size:12px; }
@@ -110,6 +120,15 @@ p { font-size:14px; line-height:1.6; }
 
 .card { background: var(--card-bg); border-radius: var(--radius); padding:18px; margin-top:16px; box-shadow: var(--shadow); }
 .card-title { font-weight:700; margin-bottom:8px; }
+
+/* experience card highlight (first lines) */
+.card h3,
+.card .card-title {
+  background: rgba(255,209,238,0.2);
+  padding:6px 10px;
+  border-radius:8px;
+  display:inline-block;
+}
 
 .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .pill { font-size:12px; padding:6px 10px; border-radius:999px; background: rgba(255,209,238,0.2); border:1px solid rgba(255,209,238,0.3); }
@@ -129,14 +148,12 @@ li { margin:6px 0; }
 
 .footer { margin-top:28px; font-size:12px; color: rgba(255,255,255,0.7); }
 
-/* increase text size for specific sections */
 #projects p,
 #writing p,
 #personal p {
   font-size:14px;
 }
 
-/* smaller resource links */
 .resource-links {
   font-size:11px;
 }
