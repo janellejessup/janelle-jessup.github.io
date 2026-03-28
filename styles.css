@@ -1,9 +1,9 @@
 :root {
-  --darkest: #470134;
-  --dark: #6a0a3c;
-  --mid: #a0256d;
-  --light: #ffd1ee;
-  --soft-white: #fffafc;
+  --darkest: #6b1b34;
+  --dark: #a14a65;
+  --mid: #e8c5d0;
+  --light: #f5e1e8;
+  --soft-white: #fffafb;
 
   --sidebar-bg: var(--darkest);
   --sidebar-text: var(--soft-white);
@@ -40,35 +40,69 @@ a:hover { text-decoration: underline; }
   flex-direction: column;
 }
 
-.avatar { width: 120px; height: 120px; border-radius: 999px; border:3px solid rgba(255,255,255,0.35); object-fit:cover; }
+.avatar { 
+  width: 120px; 
+  height: 120px; 
+  border-radius: 999px; 
+  border:3px solid rgba(255,255,255,0.35); 
+  object-fit:cover; 
+  display:block;
+  margin: 0 auto;
+}
 
 .name { font-weight:600; font-size:16px; text-align:center; }
 
-.btn-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
+.btn-row { 
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:10px; 
+  margin-top:auto;
+}
 .btn { padding:10px; border-radius:999px; background: rgba(255,255,255,0.1); color: var(--sidebar-text); font-weight:500; font-size:12px; border:1px solid rgba(255,255,255,0.18); text-align:center; transition:0.15s; }
 .btn:hover { background: rgba(255,255,255,0.16); transform:translateY(-2px); }
 
 .nav { margin-top:24px; display:grid; gap:8px; }
-.nav-link { padding:10px 14px; border-radius:12px; color: var(--sidebar-muted); font-weight:500; font-size:12px; border:1px solid transparent; }
+.nav-link { padding:10px 14px; border-radius:12px; color: var(--sidebar-muted); font-weight:500; font-size:12px; border:1px solid transparent; text-align:center; }
 .nav-link:hover { background: rgba(255,255,255,0.08); color: var(--sidebar-text); }
 .nav-link.active { background: rgba(255,255,255,0.12); color: var(--sidebar-text); border:1px solid rgba(255,255,255,0.18); }
 
+/* remove contact link from sidebar */
+.nav-link[href="#contact"] { display:none; }
+
 .content { margin-left:280px; padding:36px 42px; max-width:1100px; }
 
-.section { padding:32px 0; border-bottom:1px solid var(--dark); }
+.section { 
+  padding:32px; 
+  margin: 96px 0; 
+  border-bottom:1px solid var(--dark); 
+  border-radius: var(--radius);
+}
+
+/* extra large gap before about section */
+#about { margin-top: 50vh; }
 
 #about { background: var(--darkest); color: var(--soft-white); }
 #resume { background: var(--dark); color: var(--soft-white); }
-#skills { background: var(--mid); color: var(--soft-white); }
+
+/* removed pink background */
+#skills { background: transparent; color: var(--darkest); }
+
 #experience { background: var(--light); color: var(--darkest); }
 #projects { background: var(--mid); color: var(--soft-white); }
 #writing { background: var(--light); color: var(--darkest); }
 #personal { background: var(--mid); color: var(--soft-white); }
 #contact { background: var(--dark); color: var(--soft-white); }
 
-h1 { font-size:42px; margin:0 0 12px; font-weight:700; }
-h3 { font-size:20px; margin:0 0 8px; font-weight:600; }
-h4 { font-size:13px; margin:14px 0 6px; font-weight:700; text-transform:uppercase; letter-spacing:0.02em; }
+/* make all section titles same color as writing */
+.section h1,
+.section h3,
+.section h4 {
+  color: var(--darkest);
+}
+
+h1 { font-size:42px; margin:0 0 12px; font-weight:700; text-align:center; }
+h3 { font-size:20px; margin:0 0 8px; font-weight:600; text-align:center; }
+h4 { font-size:13px; margin:14px 0 6px; font-weight:700; text-transform:uppercase; letter-spacing:0.02em; text-align:center; }
 
 p { font-size:14px; line-height:1.6; }
 .small { font-size:12px; }
@@ -94,6 +128,18 @@ li { margin:6px 0; }
 .contact-list li { margin:8px 0; }
 
 .footer { margin-top:28px; font-size:12px; color: rgba(255,255,255,0.7); }
+
+/* increase text size for specific sections */
+#projects p,
+#writing p,
+#personal p {
+  font-size:14px;
+}
+
+/* smaller resource links */
+.resource-links {
+  font-size:11px;
+}
 
 @media(max-width:920px){
   .sidebar { position:relative; width:100%; border-right:none; border-bottom:1px solid rgba(255,255,255,0.12); }
