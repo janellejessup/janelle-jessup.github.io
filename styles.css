@@ -121,13 +121,17 @@ p { font-size:14px; line-height:1.6; }
 .card { background: var(--card-bg); border-radius: var(--radius); padding:18px; margin-top:16px; box-shadow: var(--shadow); }
 .card-title { font-weight:700; margin-bottom:8px; }
 
-/* experience card highlight (first lines) */
-.card h3,
-.card .card-title {
+#experience .card-title,
+#experience .card-tagline {
   background: rgba(255,209,238,0.2);
-  padding:6px 10px;
-  border-radius:8px;
-  display:inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: block;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
